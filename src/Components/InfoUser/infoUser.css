@@ -1,0 +1,70 @@
+.userInfoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+  
+}
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userInfo h3 {
+    color: var(--text-color);
+    font-size: 13px;
+}
+.deColumnInfo{
+    display: flex;
+    flex-direction: column;
+}
+.userInfo img {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.userInfo a {
+    color: var(--text-color2)!important;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.loginText{
+    font-size: 14px;
+}
+
+.info h3 {
+    font-size: 16px;
+    font-weight: 500;  
+ }
+@media (max-width: 1110px){
+
+
+    .userInfo img {
+        width: 35px;
+        height: 35px;
+    }
+    .userInfo p {
+        font-size: 13px;
+        font-weight: 400;
+    }
+    .info h3 {
+       font-size: 16px;
+       font-weight: 500;  
+    }
+    .userInfoContainer{
+        display: none;
+    }
+}

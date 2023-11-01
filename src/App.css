@@ -1,0 +1,78 @@
+*{
+  padding: 0 ;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.2s linear;
+}
+:root{
+  --text-color: #000;
+  --text-color2: #5c5959;
+  --bg-color: #111111;
+  --gris:#fafafa;
+  --color1:#0074E4;
+  --color2:rgba(0, 162, 255, 0.227);
+  --blanco: #fff;
+}
+
+
+h2,h3,h4,h5{
+  color: var(--text-color);
+}
+a{
+  text-decoration: none;
+}
+
+ 
+ a, .detail-contain img, p{
+  opacity: 0;
+  animation: slideFromLeft 1s ease-in-out forwards;
+  -webkit-animation: slideFromLeft 1s ease-in-out forwards;
+}
+nav, header ,.scrolled,.search-container-home,.inputSearch,.modal{ opacity: 0; animation: slideFromCenter 0.55s ease-in-out forwards; -webkit-animation: slideFromCenter 0.55s ease-in-out forwards;
+}
+  
+
+@keyframes slideFromLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-20%);
+      -webkit-transform: translateX(-20%);
+      -moz-transform: translateX(-20%);
+      -ms-transform: translateX(-20%);
+      -o-transform: translateX(-20%);
+}
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+
+
+@keyframes slideFromCenter {
+  from {
+      opacity: 0;
+     
+  }
+  to {
+      opacity: 10;
+      transform: translateY(0%);
+      -webkit-transform: translateY(0%);
+      -moz-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+      -o-transform: translateY(0%);
+  }
+  }
+  html::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+    cursor: pointer;
+  }
+  
+  html::-webkit-scrollbar-thumb{
+     background-color: var(--color1);
+     width: 10px;
+     border-radius:20px ;
+     cursor: pointer;
+  }
+ 

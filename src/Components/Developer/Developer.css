@@ -1,0 +1,14 @@
+.developerContain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+}
+
+.logo-juan-rivera-developer{
+    width: 60px;
+    object-fit: cover;
+}

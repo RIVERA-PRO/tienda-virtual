@@ -1,0 +1,42 @@
+.form-register{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 43px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+}
+
+.form-register input{
+    background-color: transparent;
+    padding: 5px;
+    border: none;
+    margin: 7px 0px;
+    background-color: #000000;
+    border-radius: 30px;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffff;
+    color: var(--text-color);
+    border-radius: 300rem !important;
+}
+.form-register h4{
+    text-align: center;
+    font-size: 17px;
+}
+.enviar input{
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    color: var(--rojo);
+    border-radius: 300rem !important;
+}
+
+
+.form-register-contain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+

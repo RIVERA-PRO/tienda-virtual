@@ -14,7 +14,7 @@ function ProfilePage({ handleLogout }) {
     }
   };
 
-  // Llamar a la función updateUserData cuando el componente se monte
+
   useEffect(() => {
     updateUserData();
   }, []);
@@ -26,7 +26,7 @@ function ProfilePage({ handleLogout }) {
     <div className='userInfoContainer'>
       {userData ? (
         <div>
-          <Anchor to={`/usuario/${userData.user_id}`} >
+          <Anchor to={`/perfil/${userData.user_id}`} >
             <img src={userData.photo} alt="" />
           </Anchor>
 

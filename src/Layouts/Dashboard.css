@@ -1,0 +1,14 @@
+.dashboardGrid{
+    display: grid;
+    grid-template-areas:  "filtrosUbicacion cardsContain ";
+   
+    align-items: start; 
+    gap: 2rem;
+}
+
+@media (max-width: 760px) {
+    .dashboardGrid{
+        display: flex;
+        flex-direction: column;
+    }
+}

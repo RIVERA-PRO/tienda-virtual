@@ -6,6 +6,8 @@ import Carrito from "../Components/Carrito/Carrito";
 import PageLogin from "./PageLogin/PageLogin";
 import PerfilUser from "../Components/PerfilUser/PerfilUser";
 import Section from '../Layouts/Section'
+import Dashboard from '../Layouts/Dashboard'
+import MainDashboard from "../Components/MainDashboard/MainDashboard";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -38,9 +40,22 @@ export const router = createBrowserRouter([
                 element: <Carrito />,
             },
             {
-                path: "/usuario/:id",
+                path: "/perfil/:id",
                 element: <PerfilUser />,
             },
+        ],
+    },
+    {
+        path: "/",
+        element: <Dashboard />,
+        children: [
+
+
+            {
+                path: "/dashboard",
+                element: <MainDashboard />,
+            },
+
         ],
     },
 ]);

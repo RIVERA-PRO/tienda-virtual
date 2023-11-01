@@ -108,4 +108,9 @@
     .form-register{
         padding: 30px 3%;
     }
+    .form-register input{
+        border: 0.3px solid #00000037;
+        padding: 10px 20px;
+    }
+    
 }

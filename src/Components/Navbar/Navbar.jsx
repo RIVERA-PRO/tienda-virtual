@@ -6,10 +6,14 @@ import InputSearch from '../InputSerach/InputSearchs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../images/logo.png'
+import InfoUser from '../InfoUser/InfoUser'
 export default function Navbar() {
 
     const [isOpen, setIsOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false);
+    const [userData, setUserData] = useState(null);
+
+
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -25,6 +29,7 @@ export default function Navbar() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
 
     return (
         <header className={scrolled ? "navbar scrolled " : "navbar"}>
@@ -48,8 +53,8 @@ export default function Navbar() {
 
                     </div>
                     <div className='deFlexBtn'>
-                        <Anchor to={`/login`} className='btn-sesion2'>
-                            <FontAwesomeIcon icon={faUser} />
+                        <Anchor className='btn-sesion2'>
+                            <InfoUser />
                         </Anchor>
                         <Anchor to={`/login`} className='btn-sesion2'>
                             <FontAwesomeIcon icon={faShoppingCart} />
@@ -81,8 +86,8 @@ export default function Navbar() {
                         <span></span>
                         <span></span>
                     </div>
-                    <Anchor to={`/login`} className='btn-sesion'>
-                        <FontAwesomeIcon icon={faUser} />
+                    <Anchor className='btn-sesion'>
+                        <InfoUser />
                     </Anchor>
                     <Anchor to={`/carrito`} className='btn-sesion'>
                         <FontAwesomeIcon icon={faShoppingCart} />

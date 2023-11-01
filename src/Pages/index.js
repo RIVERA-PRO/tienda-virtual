@@ -4,6 +4,8 @@ import { createBrowserRouter } from "react-router-dom";
 import PageDetail from '../Pages/PageDetail/PageDetail'
 import Carrito from "../Components/Carrito/Carrito";
 import PageLogin from "./PageLogin/PageLogin";
+import PerfilUser from "../Components/PerfilUser/PerfilUser";
+import Section from '../Layouts/Section'
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -19,6 +21,14 @@ export const router = createBrowserRouter([
                 element: <PageDetail />,
             },
 
+
+
+        ],
+    },
+    {
+        path: "/",
+        element: <Section />,
+        children: [
             {
                 path: "/login",
                 element: <PageLogin />,
@@ -26,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: "/carrito",
                 element: <Carrito />,
+            },
+            {
+                path: "/usuario/:id",
+                element: <PerfilUser />,
             },
         ],
     },

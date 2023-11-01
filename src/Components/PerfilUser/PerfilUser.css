@@ -1,0 +1,89 @@
+.perfilUser{
+   
+    width: 100%;
+    padding: 10px 2%;
+   
+}
+
+.fondo{
+    display:flex;
+    height: 50vh;
+ 
+    width: 100%;
+}
+.fondo img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.infoUserCard{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -10vh;
+    gap: 1rem;
+}
+.infoUserCard h3{
+    color: var(--text-color);
+}
+.infoUserCard img{
+    width: 20vh;
+    height: 20vh;
+    border-radius: 100%;
+   object-fit: cover;
+}
+
+.textLoading{
+    width: 40vh;
+    height: 1rem;
+    border-radius: 10%;
+    background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
+    background-size: 400% 400%;
+    animation: gradientMove 1s linear infinite;
+    -webkit-animation: gradientMove 1s linear infinite;
+}
+.imgloading {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 100%;
+    background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
+    background-size: 400% 400%;
+    animation: gradientMove 1s linear infinite;
+    -webkit-animation: gradientMove 1s linear infinite;
+}
+  
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+
+  @media (max-width: 700px){
+    .infoUserCard img{
+        width: 10vh;
+        height: 10vh;
+        border-radius: 100%;
+      
+       
+    }
+
+    .infoUserCard{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -5vh;
+        gap: 1rem;
+    }
+
+   
+    .fondo{
+      height: 25vh;
+       
+    }
+  }

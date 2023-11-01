@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 3%;
+    padding: 100px 2%;
 }
 
 .img-form {
@@ -52,15 +52,15 @@
      
     }
 
-    .fondo{
-        display: none;
+    .img-form img{
+      display: none;
     }
     .PageLogin{
         width: 100%;
         display:inline-block ;
         justify-content: center;
         align-items: center;
-    
+        padding: 70px 2%;
       
       
     }

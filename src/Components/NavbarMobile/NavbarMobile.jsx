@@ -5,7 +5,7 @@ import { Link as Anchor, useNavigate, useLocation } from "react-router-dom";
 import InputSearch from '../InputSerach/InputSearchs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faShoppingCart, faSearch, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
-
+import InfoUser from '../InfoUser/InfoUser'
 export default function NavbarMobile() {
 
     const location = useLocation();
@@ -38,8 +38,8 @@ export default function NavbarMobile() {
             <Anchor to={`/`} className={location.pathname === '/' ? 'active' : ''} onClick={closeModal}>
                 <FontAwesomeIcon icon={faHome} />
             </Anchor>
-            <Anchor to={`/login`} className={location.pathname === '/login' ? 'active' : ''} onClick={closeModal}>
-                <FontAwesomeIcon icon={faUser} />
+            <Anchor className={location.pathname === '/login' ? 'active' : ''} onClick={closeModal}>
+                <InfoUser />
             </Anchor>
 
             <button onClick={modalOpen ? closeModal : openModal} className='plus'>

@@ -311,7 +311,11 @@ nav{
        display: none;
      }
     
-   
+     header {
+       
+        position: absolute;
+       
+    }
  }
 
 

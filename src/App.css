@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   transition: all 0.2s linear;
+ 
 }
 :root{
   --text-color: #000;
@@ -28,9 +29,11 @@ a{
   animation: slideFromLeft 1s ease-in-out forwards;
   -webkit-animation: slideFromLeft 1s ease-in-out forwards;
 }
-nav, header ,.scrolled,.search-container-home,.inputSearch,.modal{ opacity: 0; animation: slideFromCenter 0.55s ease-in-out forwards; -webkit-animation: slideFromCenter 0.55s ease-in-out forwards;
+nav, header ,.scrolled,.search-container-home,.inputSearch,.modal,.scrolledMobile,.modalNavMobile{ opacity: 0; animation: slideFromCenter 0.55s ease-in-out forwards; -webkit-animation: slideFromCenter 0.55s ease-in-out forwards;
 }
   
+.modalNavMobile,.modalSearch-content{ opacity: 0; animation: slideUp 0.4s ease-in-out forwards; -webkit-animation: slideUp 0.4s ease-in-out forwards;
+}
 
 @keyframes slideFromLeft {
   from {
@@ -62,6 +65,22 @@ nav, header ,.scrolled,.search-container-home,.inputSearch,.modal{ opacity: 0; a
       -ms-transform: translateY(0%);
       -o-transform: translateY(0%);
   }
+  }
+
+  
+@keyframes slideUp {
+  from {
+      opacity: 0;
+     
+  }
+  to {
+      opacity: 10;
+      transform: translateY(-3%);
+      -webkit-transform: translateY(-3%);
+      -moz-transform: translateY(-3%);
+      -ms-transform: translateY(-3%);
+      -o-transform: translateY(-3%);
+}
   }
   html::-webkit-scrollbar{
     width: 7px;

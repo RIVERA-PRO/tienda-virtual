@@ -41,18 +41,19 @@
    
     border-radius: 20px;
     border: 0.3px solid #00000037;
-    padding: 5px 10px;
+    padding: 4px 7px;
 
     color: var(--text-color2);
     display: flex;
     gap: 10px;
     align-items: center;
+    font-size: 15px;
 
   }
   .input{
     width: 90%;
     height: 100%;
-    padding: 6px 6px;
+    padding: 6px 20px 6px 0px;
     background-color: transparent;
     border: none;
   }
@@ -120,7 +121,8 @@
   border-radius: 10px;
   width: 80vh;
   height: 90%;
- padding: 20px;
+  padding: 10px 20px;
+  margin-top: 5vh;
 }
 
 .close{
@@ -130,6 +132,8 @@
   margin-left: 98%;
   margin-bottom: 1rem;
 }
+
+
 
  @media (max-width: 1024px){
   .modal p {
@@ -145,25 +149,20 @@
        
        
      
-        width: 16vh;
+        width: 100%;
+      
         
       }
+     
 
     
- }
- @media (max-width: 1200px){
-    .inputSearch{
-      width: 30vh!important;
-      
-      }
-     
  }
 
 
 @media (max-width: 510px){
   .inputSearch{
       width: 100%!important;
-   display: none;
+      display: none;
     }
     .modalSearch-content{
       background-color: rgb(255, 255, 255);
@@ -172,6 +171,7 @@
       height: 100%;
      padding: 20px;
     }
+  
 }
 
 

@@ -12,3 +12,9 @@
     width: 60px;
     object-fit: cover;
 }
+
+@media (max-width: 1024px){
+   .developerContain{
+    margin-bottom: 10vh;
+   }
+}

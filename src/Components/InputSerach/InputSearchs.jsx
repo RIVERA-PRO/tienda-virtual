@@ -57,11 +57,14 @@ export default function InputSearchs() {
             <div className="search-container">
                 <div className="inputSearch" onClick={openModal}>
                     <FontAwesomeIcon icon={faSearch} className="search-icon" />
-                    <input
-                        type="text"
-                        placeholder="Buscar propiedad..."
+                    <div
+
+
                         className="input"
-                    />
+
+                    >
+                        Buscar propiedad...
+                    </div>
                 </div>
             </div>
 

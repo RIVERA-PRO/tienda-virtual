@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Login from '../../Components/LogIn/LogIn';
 import Register from '../../Components/Register/Register';
 import './PageLogin.css'
-import imagen from '../../images/home.png'
+import imagen from '../../images/3.png'
 export default function PageLogin() {
     const [showLogin, setShowLogin] = useState(true);
 

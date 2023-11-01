@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 
 import Footer from '../Components/Footer/Footer'
 import Develloper from '../Components/Developer/Developer'
+import NavbarMobile from '../Components/NavbarMobile/NavbarMobile'
 export default function MainLayout() {
     return (
         <div>
@@ -12,7 +13,7 @@ export default function MainLayout() {
 
             <Footer />
             <Develloper />
-
+            <NavbarMobile />
         </div>
     )
 }

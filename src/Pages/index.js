@@ -10,6 +10,7 @@ import Dashboard from '../Layouts/Dashboard'
 import MainDashboard from "../Components/MainDashboard/MainDashboard";
 import CrearProducto from "../Components/CrearProducto/CrearProducto";
 import ProductosDashboard from "../Components/ProductosDashboard/ProductosDashboard";
+import AllProductos from "../Components/AllProductos/AllProductos";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -24,7 +25,10 @@ export const router = createBrowserRouter([
                 path: "/producto/:id",
                 element: <PageDetail />,
             },
-
+            {
+                path: "/products",
+                element: <AllProductos />,
+            },
 
 
         ],

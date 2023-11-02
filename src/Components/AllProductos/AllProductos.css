@@ -1,0 +1,132 @@
+.gridProducts{
+    display: grid;
+    grid-template-areas:  "filtros productosFiltrados "!important;
+   background-color: var(--blanco);
+   align-items: start; 
+  
+    gap: 2rem;
+    width: 100%;
+   
+   padding: 50px 6%;
+   
+   
+}
+.productosFiltrados{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: column;
+    width: 40vh;
+    gap: 2rem;
+
+  
+}
+.filtros fieldset{
+    border: 0.3px solid #00000037;
+    border-radius: 7px;
+   padding: 10px;
+   background-color: var(--blanco);
+}
+.filtro{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.filterproduct{
+    background-color: var(  --gris)!important;
+    border-radius:20px!important;
+    border: 0.3px solid #00000037;
+    padding: 4px 7px!important;
+    color: var(--text-color2);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 15px;
+
+}
+.filterproduct input{
+    width: 100%;
+    border: none;
+    padding: 4px 7px;
+    background-color: transparent;
+}
+.filtroCategoria{
+    display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   
+}
+.filtroCategoria label{
+    display: flex;
+    color: var(--text-color2);
+   gap: 10px;
+}
+@media (max-width:1224px) {
+    .gridProducts{
+      
+       padding: 100px 2%;
+       
+    }
+}
+@media (max-width: 760px) {
+    .gridProducts{
+       display: flex;
+       flex-direction: column;
+       padding: 100px 2%;
+       
+    }
+    .filtros{
+      
+        width: 100%;
+       gap: 1rem;
+    
+      
+    }
+    .filtroCategoria h3{
+        display: none;
+    }
+    .filtroCategoria{
+        display: flex;
+        justify-content: space-between;
+        overflow-x: scroll;
+    }
+    .filtroCategoria label{
+        display: flex;
+        gap: 1rem;
+    }
+    .filtroPrecio h3{
+        display: none;
+    }
+    .filtroPrecio input{
+      background-color: var(--gris)!important;
+      color: var(--gris)!important;
+      width: 100%;
+
+    }
+    .filtroPrecio {
+        font-size: 13px;
+    }
+    .productosFiltrados .cardScroll{
+        width: 100%;
+        margin: 0;
+    }
+    .productosFiltrados .cardScroll h3{
+       font-size: 13px;
+    }
+    .productosFiltrados{
+        margin: auto;
+    width: 100%;
+
+    border-radius: 1em;
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: .6em;
+       
+    }
+}

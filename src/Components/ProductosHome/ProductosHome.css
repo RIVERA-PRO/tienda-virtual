@@ -29,14 +29,16 @@
 .cardScroll p{
     color: var(--text-color2);
     font-size: 14px;
+    height: 2.3rem;
 }
 .cardScroll h4{
     color: var(--blanco);
     font-size: 13px;
     background-color: var(--color1);
     padding: 5px;
-    width: 10vh;
+    width: 5rem;
     border-radius: 2px;
+    text-align: center;
 }
 .cardScroll img{
     width: 100%;

@@ -146,7 +146,7 @@ export default function ProductosHome() {
                                     </Swiper>
 
                                     <div className='cardText'>
-                                        <h3>{item.title.slice(0, 30)}</h3>
+                                        <h3>{item.title.slice(0, 22)}..</h3>
                                         <p>{item.description.slice(0, 50)}...</p>
                                         <h4>$ {item.price}</h4>
                                     </div>

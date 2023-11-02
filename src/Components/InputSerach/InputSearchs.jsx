@@ -60,7 +60,7 @@ export default function InputSearchs() {
                 <div className="inputSearch" onClick={openModal}>
                     <FontAwesomeIcon icon={faSearch} className="search-icon" />
                     <div className="input">
-                        Buscar propiedad... {/* Cambio de "ejercicio" a "propiedad" */}
+                        Buscar productos... {/* Cambio de "ejercicio" a "propiedad" */}
                     </div>
                 </div>
             </div>

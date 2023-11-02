@@ -53,9 +53,9 @@ export default function Navbar() {
 
                     <div className='enlaces'>
                         <Anchor to={`/`} ><FontAwesomeIcon icon={faHome} /> Inico</Anchor>
-                        <Anchor to={`/`} ><FontAwesomeIcon icon={faHome} /> Zapatillas</Anchor>
-                        <Anchor to={`/`} ><FontAwesomeIcon icon={faHome} /> Remeras</Anchor>
-                        <Anchor to={`/`} ><FontAwesomeIcon icon={faHome} /> Pantalones</Anchor>
+                        <Anchor to={`/products`} ><FontAwesomeIcon icon={faHome} /> Zapatillas</Anchor>
+                        <Anchor to={`/products`} ><FontAwesomeIcon icon={faHome} /> Remeras</Anchor>
+                        <Anchor to={`/products`} ><FontAwesomeIcon icon={faHome} /> Pantalones</Anchor>
                     </div>
 
 
@@ -64,9 +64,9 @@ export default function Navbar() {
 
                 <div className='enlaces2'>
                     <Anchor to={`/`} >Inico</Anchor>
-                    <Anchor to={`/`} >Zapatillas</Anchor>
-                    <Anchor to={`/`} >Remeras</Anchor>
-                    <Anchor to={`/`} >Pantalones</Anchor>
+                    <Anchor to={`/products`} >Zapatillas</Anchor>
+                    <Anchor to={`/products`} >Remeras</Anchor>
+                    <Anchor to={`/products`} >Pantalones</Anchor>
                 </div>
 
                 <div className='deFlexnav'>

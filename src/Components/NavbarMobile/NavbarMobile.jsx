@@ -59,13 +59,13 @@ export default function NavbarMobile() {
                     <Anchor to={`/`}>
                         <FontAwesomeIcon icon={faHome} /> Inicio
                     </Anchor>
-                    <Anchor to={`/`}>
+                    <Anchor to={`/products`}>
                         <FontAwesomeIcon icon={faSearch} /> Zapatillas
                     </Anchor>
-                    <Anchor to={`/`}>
+                    <Anchor to={`/products`}>
                         <FontAwesomeIcon icon={faSearch} /> Remeras
                     </Anchor>
-                    <Anchor to={`/`}>
+                    <Anchor to={`/products`}>
                         <FontAwesomeIcon icon={faSearch} /> Pantalones
                     </Anchor>
                 </div>

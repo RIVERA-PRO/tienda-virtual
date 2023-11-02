@@ -24,7 +24,7 @@
     
     .scrolledMobile a{
         font-size: 20px;
-        color: var(--text-color1);
+       
         color: #aeadad
     }
     
@@ -60,7 +60,7 @@
    
     right: 0;
     left: 0;
-    bottom: 5.6vh;
+    bottom: 5.4vh;
     padding: 50px 5%;
    flex-direction: column;
    gap: 2rem;
@@ -69,5 +69,8 @@
 
 
   
+}
+.modalNavMobile a{
+    font-size: 16px;
 }
 }

@@ -1,0 +1,58 @@
+.inputSearchMobile{
+  font-size: 20px;
+       
+        color: #aeadad
+}
+
+.modalSearchMobile {
+    background-color: var(--blanco);
+  
+    display: flex;
+   
+    position: absolute;
+    
+    height: 80vh;
+   
+    right: 0px;
+    left: 0px;
+    bottom: 4.5vh;
+    padding: 10px 5%;
+    flex-direction: column;
+ 
+   border-radius: 10px 10px 0px 0px;
+   box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.53);
+  }
+  .inputSearschMobile{
+    background-color: var(  --gris)!important;
+   
+    border-radius: 20px;
+    border: 0.3px solid #00000037;
+    padding: 4px 7px;
+
+    color: var(--text-color2);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 15px;
+  }
+
+  .modalMobile {
+    position: absolute;
+    top: calc(15% + 1px);
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    max-height: 79%;
+    overflow-y:scroll;
+    border-radius: 7px ;
+    transition: all .40s ease;
+    padding: 10px 5%;
+}
+.modalMobile a{
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2rem ;
+}
+ 

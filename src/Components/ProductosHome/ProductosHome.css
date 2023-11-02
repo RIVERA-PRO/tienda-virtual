@@ -70,7 +70,7 @@
   
 @media (max-width: 710px) {
     .cardScroll{
-        width: 30vh;
+        width: 27vh;
         height: 33vh;
     }
     .cardScroll p{
@@ -82,7 +82,7 @@
         color: var(--blanco);
         font-size: 13px;
         background-color: var(--color1);
-        padding: 3px;
+        padding: 2px 5px;
         width: 10vh;
         border-radius: 2px;
         
@@ -92,11 +92,11 @@
         font-size: 16px;
     }
     #swiperCardScroll{
-        width: 30vh;
+        width: 27vh;
         margin: 6px;
     }
     .cardloadin{
-       width: 30vh;
+        width: 27vh;
         height: 33vh;
         background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
         background-size: 400% 400%;

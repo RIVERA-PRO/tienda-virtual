@@ -33,7 +33,7 @@ a{
 nav, header ,.scrolled,.search-container-home,.inputSearch,.modal,.scrolledMobile,.modalNavMobile,.scrolledMobile{ opacity: 0; animation: slideFromCenter 0.55s ease-in-out forwards; -webkit-animation: slideFromCenter 0.55s ease-in-out forwards;
 }
   
-.modalNavMobile,.modalSearch-content{ opacity: 0; animation: slideUp 0.4s ease-in-out forwards; -webkit-animation: slideUp 0.4s ease-in-out forwards;
+.modalNavMobile,.modalSearch-content,.modalSearchMobile{ opacity: 0; animation: slideUp 0.4s ease-in-out forwards; -webkit-animation: slideUp 0.4s ease-in-out forwards;
 }
 
 @keyframes slideFromLeft {

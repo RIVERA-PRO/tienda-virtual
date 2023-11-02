@@ -5,7 +5,7 @@ import { Link as Anchor, useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faShoppingCart, faSearch, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
 import InfoUser from '../InfoUser/InfoUser';
-
+import InputSearchMobile from '../InputSearchMobile/InputSearchMobile';
 export default function NavbarMobile() {
     const location = useLocation();
     const [scrolled, setScrolled] = useState(false);
@@ -51,9 +51,9 @@ export default function NavbarMobile() {
             <Anchor to={`/carrito`} className={location.pathname === '/carrito' ? 'active' : ''} onClick={closeModal}>
                 <FontAwesomeIcon icon={faShoppingCart} />
             </Anchor>
-            <Anchor to={`/`} className={location.pathname === '/search' ? 'active' : ''} onClick={closeModal}>
-                <FontAwesomeIcon icon={faSearch} />
-            </Anchor>
+
+            <InputSearchMobile />
+
             {modalOpen && (
                 <div className="modalNavMobile">
                     <Anchor to={`/`}>

@@ -47,9 +47,7 @@ export default function Navbar() {
                         <Anchor to={`/`} className='logo-nav'>
                             <img src={logo} alt="logo" />
                         </Anchor>
-                        <div className="cerrar-nav" onClick={() => setIsOpen(!isOpen)}>
-                            x
-                        </div>
+
 
                     </div>
 

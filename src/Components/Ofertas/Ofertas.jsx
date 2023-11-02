@@ -10,15 +10,15 @@ export default function Ofertas() {
         <div className='ofertas'>
 
             <div className='imgOfertas'>
-                <Anchor to={`/pantalones`} >
+                <Anchor to={`/products`} >
 
                     <img src={pantalones} alt="" />
                 </Anchor>
-                <Anchor to={`/remeras`} >
+                <Anchor to={`/products`} >
 
                     <img src={remeras} alt="" />
                 </Anchor>
-                <Anchor to={`/remeras`} >
+                <Anchor to={`/products`} >
 
                     <img src={zapatillaa} alt="" />
                 </Anchor>

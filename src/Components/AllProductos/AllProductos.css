@@ -77,7 +77,7 @@
     .gridProducts{
        display: flex;
        flex-direction: column;
-       padding: 100px 2%;
+       padding: 30px 2%;
        
     }
     .filtros{

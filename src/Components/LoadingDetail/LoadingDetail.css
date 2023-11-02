@@ -1,5 +1,11 @@
+.detailLoading{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
 .imgPrincipal{
-    width: 70vh;
+    width: 90vh;
     height: 70vh;
     background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
     background-size: 400% 400%;
@@ -8,12 +14,7 @@
     border-radius: 10px;
 }
 
-.imgsDetail{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-between;
-}
+
 .imgsDetail span{
     background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
     background-size: 400% 400%;
@@ -43,4 +44,25 @@
     width: 100vh;
     height: 2vh;
     border-radius: 10px;
+}
+
+@media (max-width:1200px){
+    .imgPrincipal{
+        width: 100%;
+        height: 40vh;
+        
+    }
+    .textTitle{
+        
+        width: 100%;
+        height: 2vh;
+        
+    }
+   .textDescript{
+    width: 100%;
+    height: 1vh;
+    }
+    .detailLoading{
+       flex-direction: column;
+    }
 }

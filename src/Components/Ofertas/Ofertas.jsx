@@ -1,5 +1,6 @@
 import React from 'react'
 import zapatillas from '../../images/zapatillas.png'
+import zapatillaa from '../../images/zapatillaa.png'
 import pantalones from '../../images/pantalones.png'
 import remeras from '../../images/remeras.png'
 import './Ofertas.css'
@@ -17,12 +18,12 @@ export default function Ofertas() {
 
                     <img src={remeras} alt="" />
                 </Anchor>
+                <Anchor to={`/remeras`} >
 
+                    <img src={zapatillaa} alt="" />
+                </Anchor>
             </div>
-            <Anchor to={`/zapatillas`} className='bannerImg' >
 
-                <img src={zapatillas} alt="" />
-            </Anchor>
 
         </div>
     )

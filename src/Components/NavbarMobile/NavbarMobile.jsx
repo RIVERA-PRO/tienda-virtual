@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import './NavbarMobile.css'
+import React, { useState, useEffect } from 'react';
+import './NavbarMobile.css';
+import { Link as Anchor, useNavigate, useLocation } from 'react-router-dom';
 
-import { Link as Anchor, useNavigate, useLocation } from "react-router-dom";
-import InputSearch from '../InputSerach/InputSearchs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faShoppingCart, faSearch, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
-import InfoUser from '../InfoUser/InfoUser'
-export default function NavbarMobile() {
+import InfoUser from '../InfoUser/InfoUser';
 
+export default function NavbarMobile() {
     const location = useLocation();
     const [scrolled, setScrolled] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
+
     const openModal = () => {
-        setModalOpen(!modalOpen)
-    }
+        setModalOpen(!modalOpen);
+    };
+
     const closeModal = () => {
-        setModalOpen(false)
-    }
+        setModalOpen(false);
+    };
+
     const handleScroll = () => {
         const offset = window.scrollY;
         if (offset > 0) {
@@ -25,16 +27,16 @@ export default function NavbarMobile() {
             setScrolled(false);
         }
     };
+
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener('scroll', handleScroll);
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
     return (
-        <section className={scrolled ? " scrolledMobile " : "scrolledMobile"}>
-
+        <section className={scrolled ? 'scrolledMobile' : 'scrolledMobile'}>
             <Anchor to={`/`} className={location.pathname === '/' ? 'active' : ''} onClick={closeModal}>
                 <FontAwesomeIcon icon={faHome} />
             </Anchor>
@@ -42,10 +44,9 @@ export default function NavbarMobile() {
                 <InfoUser />
             </Anchor>
 
-            <button onClick={modalOpen ? closeModal : openModal} className='plus'>
-                {modalOpen ? <p >x</p> : <FontAwesomeIcon icon={faPlus} />}
+            <button onClick={modalOpen ? closeModal : openModal} className="plus">
+                {modalOpen ? <p>x</p> : <FontAwesomeIcon icon={faPlus} />}
             </button>
-
 
             <Anchor to={`/carrito`} className={location.pathname === '/carrito' ? 'active' : ''} onClick={closeModal}>
                 <FontAwesomeIcon icon={faShoppingCart} />
@@ -53,19 +54,22 @@ export default function NavbarMobile() {
             <Anchor to={`/`} className={location.pathname === '/search' ? 'active' : ''} onClick={closeModal}>
                 <FontAwesomeIcon icon={faSearch} />
             </Anchor>
-            {
-                modalOpen && <div className='modalNavMobile'>
-
-
-                    <Anchor to={`/`} >Inico</Anchor>
-                    <Anchor to={`/`} >Zapatillas</Anchor>
-                    <Anchor to={`/`} >Remeras</Anchor>
-                    <Anchor to={`/`} >Pantalones</Anchor>
-
-
+            {modalOpen && (
+                <div className="modalNavMobile">
+                    <Anchor to={`/`}>
+                        <FontAwesomeIcon icon={faHome} /> Inicio
+                    </Anchor>
+                    <Anchor to={`/`}>
+                        <FontAwesomeIcon icon={faSearch} /> Zapatillas
+                    </Anchor>
+                    <Anchor to={`/`}>
+                        <FontAwesomeIcon icon={faSearch} /> Remeras
+                    </Anchor>
+                    <Anchor to={`/`}>
+                        <FontAwesomeIcon icon={faSearch} /> Pantalones
+                    </Anchor>
                 </div>
-            }
-
+            )}
         </section>
     );
 }

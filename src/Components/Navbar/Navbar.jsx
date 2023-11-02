@@ -4,7 +4,7 @@ import './Navbar.css'
 import { Link as Anchor, useNavigate, useLocation } from "react-router-dom";
 import InputSearch from '../InputSerach/InputSearchs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../images/logo.png'
 import InfoUser from '../InfoUser/InfoUser'
 export default function Navbar() {
@@ -52,19 +52,12 @@ export default function Navbar() {
                         </div>
 
                     </div>
-                    <div className='deFlexBtn'>
-                        <Anchor className='btn-sesion2'>
-                            <InfoUser />
-                        </Anchor>
-                        <Anchor to={`/login`} className='btn-sesion2'>
-                            <FontAwesomeIcon icon={faShoppingCart} />
-                        </Anchor>
-                    </div>
+
                     <div className='enlaces'>
-                        <Anchor to={`/`} >Inico</Anchor>
-                        <Anchor to={`/`} >Zapatillas</Anchor>
-                        <Anchor to={`/`} >Remeras</Anchor>
-                        <Anchor to={`/`} >Pantalones</Anchor>
+                        <Anchor to={`/`} ><FontAwesomeIcon icon={faHome} /> Inico</Anchor>
+                        <Anchor to={`/`} ><FontAwesomeIcon icon={faHome} /> Zapatillas</Anchor>
+                        <Anchor to={`/`} ><FontAwesomeIcon icon={faHome} /> Remeras</Anchor>
+                        <Anchor to={`/`} ><FontAwesomeIcon icon={faHome} /> Pantalones</Anchor>
                     </div>
 
 

@@ -11,8 +11,8 @@
   --bg-color: #111111;
   --gris:#fafafa;
   --color1:#0074E4;
-  --color2:rgba(0, 162, 255, 0.227);
-  --blanco: #fff;
+  --color2:#5DE0E6;
+    --blanco: #fff;
   --input:#c1bfbf;
 }
 
@@ -83,16 +83,5 @@ nav, header ,.scrolled,.search-container-home,.inputSearch,.modal,.scrolledMobil
       -o-transform: translateY(-3%);
 }
   }
-  html::-webkit-scrollbar{
-    width: 7px;
-    height: 7px;
-    cursor: pointer;
-  }
-  
-  html::-webkit-scrollbar-thumb{
-     background-color: var(--color1);
-     width: 10px;
-     border-radius:20px ;
-     cursor: pointer;
-  }
+ 
  

@@ -2,24 +2,13 @@ import React from 'react'
 import './LoadingDetail.css'
 export default function LoadingDetail() {
     return (
-        <div className='detail'>
+        <div className='detailLoading'>
 
             <div className='deColum'>
                 <div className='imgPrincipal'>
 
                 </div>
-                <div className='imgsDetail'>
-                    <span>
 
-                    </span>
-                    <span>
-
-                    </span>
-                    <span>
-
-                    </span>
-
-                </div>
 
             </div>
             <div className='deColum'>

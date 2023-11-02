@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import './Detail.css'
 import 'react-responsive-modal/styles.css'; // Importa los estilos de react-responsive-modal
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShare, faMapMarker } from '@fortawesome/free-solid-svg-icons';
 import LoadingDetail from "../LoadingDetail/LoadingDetail";
-
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link as Anchor } from "react-router-dom";
+import 'swiper/swiper-bundle.min.css'; // Import Swiper styles
 export default function Detail() {
     const { id } = useParams(); // Obtener el user_id de los parámetros de la URL
     const [loading, setLoading] = useState(true);
     const [producto, setProducto] = useState(null);
+    const swiperRef = useRef(null);
 
+
+    SwiperCore.use([Navigation, Pagination, Autoplay]);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -49,35 +54,60 @@ export default function Detail() {
 
                 <div className="detail">
                     <div className="deColum">
-                        <div className="imgPrincipalDetail">
-                            <img src={producto.cover_photo} alt="" />
-                        </div>
-                        <div className="imgDetail">
-                            <img src={producto?.cover_photo2} alt="" />
-                            <img src={producto?.cover_photo3} alt="" />
-                            <img src={producto?.cover_photo4} alt="" />
-                        </div>
+                        <Swiper
+                            effect={'coverflow'}
+                            grabCursor={true}
+                            loop={true}
+                            slidesPerView={'auto'}
+                            coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
+                            navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
+                            autoplay={{ delay: 3000 }}
+                            pagination={{ clickable: true, }}
+                            onSwiper={(swiper) => {
+                                console.log(swiper);
+                                swiperRef.current = swiper;
+                            }}
+                            id={"swiperDetail"}
+                        >
+                            <SwiperSlide id={"swiperImgDetail"} >
+                                <img src={producto.cover_photo} alt="" />
+                            </SwiperSlide>
+
+                            <SwiperSlide id={"swiperImgDetail"} >
+                                <img src={producto?.cover_photo2} alt="" />
+                            </SwiperSlide>
+                            <SwiperSlide id={"swiperImgDetail"} >
+                                <img src={producto?.cover_photo3} alt="" />
+                            </SwiperSlide>
+                            <SwiperSlide id={"swiperImgDetail"} >
+                                <img src={producto?.cover_photo4} alt="" />
+                            </SwiperSlide>
+
+                        </Swiper>
+
                     </div>
                     <div className="deColum">
                         <h1>{producto.title}</h1>
                         <h2>$ {producto.price}</h2>
-                        <p>{producto.description}</p>
-
                         <Anchor to={`/${producto.categoria}`}>
                             {producto.categoria}
                         </Anchor>
+                        <p>{producto.description}</p>
+
+
+                        <div className="btns_final">
+
+                            <button className="agregar">
+                                Agregar al carrrito
+                            </button>
+                            <button className="comprar">
+                                Comprar
+                            </button>
+
+                        </div>
                     </div>
 
-                    <div className="btns_final">
 
-                        <button className="agregar">
-                            Agregar al carrrito
-                        </button>
-                        <button className="comprar">
-                            Comprar
-                        </button>
-
-                    </div>
                 </div>
             ) : (
                 <p>No se encontró la publicación.</p>

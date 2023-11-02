@@ -10,8 +10,8 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-    gap: 2rem;
-    padding: 40px 20px;
+    gap: 4rem;
+   
     border: none;
     place-content: center;
     justify-content: space-between;
@@ -23,25 +23,7 @@
     gap: 1rem;
 }
 
-.imgPrincipalDetail{
-    width: 70vh;
 
-}
-.imgPrincipalDetail img{
-    width: 100%;
-    border-radius: 10px;
-   
-}
-.imgDetail{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-between;
-}
-.imgDetail img{
-    width: 20vh;
-    border-radius: 10px;
-}
 
 .detail h1{
     font-size: 40px;
@@ -73,7 +55,8 @@
     border: 0.3px solid #00000037;
     border-radius: 10px;
     padding: 10px;
-    height: 30vh;
+    width: 40vh;
+   
 }
 
 .agregar{
@@ -96,17 +79,22 @@
     cursor: pointer;
 }
 
-
+#swiperDetail{
+    width: 100%;
+    height: 100%;
+}
+#swiperImgDetail{
+    width: 100%;
+}
+#swiperImgDetail img{
+    border-radius: 10px;
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+}
 @media (max-width:1024px){
   
-    .imgPrincipalDetail{
-        width: 100%;
-    
-    }
-    .imgDetail img{
-        width: 12vh;
-        border-radius: 10px;
-    }
+   
     .detail h1{
         font-size: 25px;
         color: var(--text-color);
@@ -118,6 +106,27 @@
     .detail p{
         font-size: 15px;
         color: var(--text-color2);
+    }
+    #swiperImgDetail img{
+       
+        width: 100%;
+        height: 40vh;
+        
+    }
+    .detail{
+      
+        gap: 1rem;
+       
+       
+    }
+    .detail-contain{
+      
+        padding: 45px 2%;
+    }
+    .btns_final{
+       
+        width: 100%;
+       
     }
 }
 

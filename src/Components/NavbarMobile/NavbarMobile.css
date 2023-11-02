@@ -8,39 +8,39 @@
         position: fixed;
         width: 100%;
         background-color: transparent;
-        background-color: var(--color1);
+        background-color: var(--blanco);
         bottom: 0;
         right: 0;
         left: 0;
-      
-        height: 9vh;
+        height: 7vh;
         align-items: center;
         justify-content: space-between;
         padding: 10px 10%;
         gap: 2rem;
         border-radius: 10px 10px 0px 0px;
        z-index: 10000;
+       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.53);
 }
     
     .scrolledMobile a{
         font-size: 20px;
-        color: var(--text-color2);
-        color: #c2c2c2
+        color: var(--text-color1);
+        color: #aeadad
     }
     
     .active{
-        color: var(--blanco)!important;
+        color: var(--color1)!important;
        
     }
 
     .plus{
-        background-color: var(--blanco);
-        color: var(--color1);
+        background-color: var(--color1);
+        color: var(--blanco);
         padding: 15px 15px;
-        width: 3rem;
-        height:  3rem;
+        width: 2.8rem;
+        height:  2.8rem;
         border-radius: 100%;
-        box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.326);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.53);
         display: flex;
         justify-content: center;
         text-align: center;
@@ -60,12 +60,14 @@
    
     right: 0;
     left: 0;
-    bottom: 7vh;
+    bottom: 5.6vh;
     padding: 50px 5%;
    flex-direction: column;
    gap: 2rem;
    border-radius: 10px 10px 0px 0px;
-  
+   box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.53);
+
+
   
 }
 }

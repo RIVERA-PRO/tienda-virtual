@@ -7,10 +7,11 @@
 @media (max-width: 510px){
 
     .userInfoContainer img{
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
         border-radius: 100%;
         object-fit: cover;
+        margin-top: 8px;
    }
    
 }

@@ -37,7 +37,7 @@ export default function Register() {
       [formInputs[3].name]: formInputs[3].value,
     }
 
-    let url = 'http://localhost:8080/users/signup'
+    let url = 'https://tiendavirtual-qleq.onrender.com/users/signup'
     try {
       await axios.post(url, data)
 

@@ -29,7 +29,7 @@ export default function SignIn() {
     };
     console.log(data);
 
-    let url = 'http://localhost:8080/users/signin';
+    let url = 'https://tiendavirtual-qleq.onrender.com/users/signin';
     try {
       let res = await axios.post(url, data);
       localStorage.setItem('token', res.data.token);

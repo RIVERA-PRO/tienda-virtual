@@ -12,7 +12,7 @@ export default function PerfilUser() {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } };
     useEffect(() => {
         const timer = setTimeout(() => {
-            fetch(`http://localhost:8080/users/${id}`, headers)
+            fetch(`https://tiendavirtual-qleq.onrender.com/users/${id}`, headers)
                 .then(response => response.json())
                 .then(data => {
                     setUserData(data.user[0]);

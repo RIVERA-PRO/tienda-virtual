@@ -19,7 +19,7 @@
         padding: 10px 10%;
         gap: 2rem;
         border-radius: 10px 10px 0px 0px;
-       
+       z-index: 10000;
 }
     
     .scrolledMobile a{

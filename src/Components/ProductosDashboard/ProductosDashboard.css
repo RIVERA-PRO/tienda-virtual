@@ -1,0 +1,86 @@
+
+.table-container {
+    max-height: 50vh;  
+    overflow: auto;
+}
+
+.table {
+    width: 100%; 
+    border-collapse: collapse;
+    table-layout: fixed;
+    border: 1px solid #ccc; 
+    margin-top: 1rem;
+}
+
+.table th, .table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.descripcion {
+    min-width: 30vh;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.noResult {
+    width: 100%;
+    padding: 10px;
+}
+
+.table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
+.filterText {
+    border: 1px solid var(--input);
+    border-radius: 4px;
+    padding: 10px 10px;
+    width: 30%;
+  
+}
+
+.deflex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Estilos para pantallas más pequeñas (por ejemplo, 768px o menos) */
+@media (max-width: 768px) {
+    .table {
+        width: auto; /* Restablece el ancho para adaptarse al contenido */
+    }
+
+    .table-container {
+        width: 100%; /* Ajusta el ancho del contenedor al 100% */
+        overflow-x: scroll; /* Habilita la barra de desplazamiento horizontal */
+    }
+    .filterText {
+      
+        width: 100%;
+      
+    }
+}

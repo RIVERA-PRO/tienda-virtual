@@ -13,6 +13,7 @@
   --color1:#0074E4;
   --color2:rgba(0, 162, 255, 0.227);
   --blanco: #fff;
+  --input:#c1bfbf;
 }
 
 
@@ -29,7 +30,7 @@ a{
   animation: slideFromLeft 1s ease-in-out forwards;
   -webkit-animation: slideFromLeft 1s ease-in-out forwards;
 }
-nav, header ,.scrolled,.search-container-home,.inputSearch,.modal,.scrolledMobile,.modalNavMobile{ opacity: 0; animation: slideFromCenter 0.55s ease-in-out forwards; -webkit-animation: slideFromCenter 0.55s ease-in-out forwards;
+nav, header ,.scrolled,.search-container-home,.inputSearch,.modal,.scrolledMobile,.modalNavMobile,.scrolledMobile{ opacity: 0; animation: slideFromCenter 0.55s ease-in-out forwards; -webkit-animation: slideFromCenter 0.55s ease-in-out forwards;
 }
   
 .modalNavMobile,.modalSearch-content{ opacity: 0; animation: slideUp 0.4s ease-in-out forwards; -webkit-animation: slideUp 0.4s ease-in-out forwards;

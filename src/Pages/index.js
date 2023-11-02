@@ -8,6 +8,8 @@ import PerfilUser from "../Components/PerfilUser/PerfilUser";
 import Section from '../Layouts/Section'
 import Dashboard from '../Layouts/Dashboard'
 import MainDashboard from "../Components/MainDashboard/MainDashboard";
+import CrearProducto from "../Components/CrearProducto/CrearProducto";
+import ProductosDashboard from "../Components/ProductosDashboard/ProductosDashboard";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -19,7 +21,7 @@ export const router = createBrowserRouter([
         element: <MainLayout />,
         children: [
             {
-                path: "/inmobiliario/:id/:inmobiliario",
+                path: "/producto/:id",
                 element: <PageDetail />,
             },
 
@@ -54,6 +56,14 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <MainDashboard />,
+            },
+            {
+                path: "/productos/crear",
+                element: <CrearProducto />,
+            },
+            {
+                path: "/productos",
+                element: <ProductosDashboard />,
             },
 
         ],

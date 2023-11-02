@@ -6,6 +6,7 @@ import Hero from '../Components/Hero/Hero'
 import Develloper from '../Components/Developer/Developer'
 import Ofertas from '../Components/Ofertas/Ofertas'
 import NavbarMobile from '../Components/NavbarMobile/NavbarMobile'
+import ProductosHome from '../Components/ProductosHome/ProductosHome'
 export default function IndexLayout() {
     return (
         <div >
@@ -13,6 +14,7 @@ export default function IndexLayout() {
             <Hero />
 
             <Ofertas />
+            <ProductosHome />
             <Footer />
             <Develloper />
             <NavbarMobile />

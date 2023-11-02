@@ -3,174 +3,121 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 100px 3%;
+    padding: 100px 2%;
 }
 
-.imgDetail{
-    display: flex;
-    gap: 1rem;
-
-}
-
-.imgGrid{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-.imgGrid img{
-    width: 40vh;
-    height: 28.7vh;
-    object-fit: cover;
-    border-radius: 10px;
-    cursor: pointer;
-}
-.img {
+.detail{
     width: 100%;
-    height: 60vh;
-    object-fit: cover;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.custom-modal {
-    background: rgba(0, 0, 0, 0.8);
-   
-  }
-  
-  .custom-modal img {
-    width: 100%;
-    height: 100%;
- 
-  }
-  
-  iframe {
-    width: 100%;
-    height: 30vh;
-    border-radius: 10px;
-   
-}
-hr{
-    margin-top: 2rem;
-    border: 0.3px solid #00000013;
-    margin-bottom: 2rem;
-}
-.deFlexBtn{
-      display: flex;
-      gap: 1rem;
-}
-.deFlexBtn button{
-    background-color: transparent;
-    border: none;
-    font-size: 17px;
-    color: var(--text-color2);
-    padding: 4px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.deFlexBtn button:hover{
-    background-color: #0000002b;
-  
-    
-}
-.deFlex{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
     gap: 2rem;
-}
-.title {
-    font-size: 25px;
-    color: var(--text-color2);
-}
-.detail-contain p{
-    color: var(--text-color2);
+    padding: 40px 20px;
+    border: none;
+    place-content: center;
+    justify-content: space-between;
 }
 
-.deColumn{
+.deColum{
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-.price {
-    font-size: 25px;
+
+.imgPrincipalDetail{
+    width: 70vh;
+
+}
+.imgPrincipalDetail img{
+    width: 100%;
+    border-radius: 10px;
+   
+}
+.imgDetail{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+.imgDetail img{
+    width: 20vh;
+    border-radius: 10px;
+}
+
+.detail h1{
+    font-size: 40px;
+    color: var(--text-color);
+}
+.detail h2{
+    font-size: 30px;
     color: var(--text-color2);
-    font-weight: 700;
-    margin-top: 1rem;
-  
 }
-.titlecoment{
+.detail p{
+    font-size: 15px;
     color: var(--text-color2);
-  
 }
-@media (max-width: 1224px){
-    .imgGrid img{
-        width: 20vh;
-        height: auto;
-        
-    }
+.detail a{
+    font-size: 15px;
+    color: var(--blanco);
+    background-color: var(--color1);
+    padding: 5px 10px;
+    width: 12vh;
+    text-align: center;
+    border-radius: 5px;
+   
 }
 
+.btns_final{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 0.3px solid #00000037;
+    border-radius: 10px;
+    padding: 10px;
+    height: 30vh;
+}
 
-@media (max-width: 1084px) {
-    .imgDetail{
-      flex-direction: column;
+.agregar{
+    background-color: var(--color1);
+    color: var(--blanco);
+    font-size: 15px;
+    border-radius: 7px;
+    border: none;
+    padding: 14px 20px;
+    cursor: pointer;
     
-    }
-    .imgGrid img{
-        width:  20vh;
-        height: 20vh;
-     
-    }
-    .img {
+}
+.comprar{
+    background-color: var(--color1);
+    color: var(--blanco);
+    font-size: 15px;
+    border-radius: 7px;
+    border: none;
+    padding: 14px 20px;
+    cursor: pointer;
+}
+
+
+@media (max-width:1024px){
+  
+    .imgPrincipalDetail{
         width: 100%;
     
-        height: 50vh;
     }
-
-    .deFlex{
-        flex-direction: column;
+    .imgDetail img{
+        width: 12vh;
+        border-radius: 10px;
     }
-}
-
-@media (max-width:700px){
-    .img {
-        width: 100%;
-    
-        height: 30vh;
-       
-      
+    .detail h1{
+        font-size: 25px;
+        color: var(--text-color);
     }
-    .imgGrid{
-        flex-wrap: nowrap;
-        overflow-x: scroll;
-        justify-content: space-between;
-        
-
+    .detail h2{
+        font-size: 26px;
+        color: var(--text-color2);
     }
-  
-}
-
-
-
-@media (max-width:500px){
-    .img {
-        width: 100%;
-    
-        height: 30vh;
-       
-      
+    .detail p{
+        font-size: 15px;
+        color: var(--text-color2);
     }
-    .imgGrid{
-        flex-wrap: nowrap;
-        overflow-x: scroll;
-        justify-content: space-between;
-        
-
-    }
-    .imgGrid img{
-        width:  10vh;
-        height: 10vh;
-    }
-  
 }
 

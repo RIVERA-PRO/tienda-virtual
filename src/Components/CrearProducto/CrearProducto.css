@@ -1,0 +1,84 @@
+.formProductos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.formProductosContain{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+   
+   
+    
+}
+#crear{
+    background-color: var(--color1);
+    border: none;
+    color: var(--blanco);
+    border-radius: 5px;
+    font-size: 17px;
+    width: 15vh!important;
+    height:6vh!important;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.inputs input{
+    border: 1px solid var(--input);
+    border-radius: 4px;
+    padding: 10px 10px;
+    width: 40vh;
+   
+}
+.inputs textarea{
+    border: 1px solid var(--input);
+    border-radius: 4px;
+    padding: 6px 10px;
+    width: 40vh;
+}
+.inputs select{
+    border: 1px solid var(--input);
+    border-radius: 4px;
+    padding: 6px 10px;
+    width: 40vh;
+}
+.inputs option{
+    border: 1px solid var(--input);
+    border-radius: 4px;
+    padding: 6px 10px;
+   
+}
+.inputs label{
+    font-size: 14px;
+}
+
+
+@media (max-width: 700px) {
+    .inputs input{
+      
+        width: 100%;
+       
+    }
+    .inputs textarea{
+    
+        width: 100%;
+    }
+    .inputs select{
+     
+        width: 100%;
+    }
+    .formProductos{
+    
+        padding: 10px 3%;
+        flex-direction: column!important;
+    }
+}

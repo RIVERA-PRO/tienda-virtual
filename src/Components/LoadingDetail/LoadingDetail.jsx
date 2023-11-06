@@ -11,7 +11,7 @@ export default function LoadingDetail() {
 
 
             </div>
-            <div className='deColum'>
+            <div className='deColumText'>
                 <div className='textTitle'>
 
                 </div>

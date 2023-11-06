@@ -33,6 +33,7 @@ export default function ProductosHome() {
 
 
 
+    const images = [productos?.cover_photo, productos?.cover_photo2, productos?.cover_photo3, productos?.cover_photo4].filter(image => !!image);
 
 
 
@@ -107,14 +108,10 @@ export default function ProductosHome() {
 
 
 
-
-
-
                     {
                         productos.map((item) => (
-                            <SwiperSlide id={"swiperCardScroll"} >
+                            <SwiperSlide key={item._id} id={"swiperCardScroll"}>
                                 <Anchor className='cardScroll' to={`/producto/${item._id}`}>
-
                                     <Swiper
                                         effect={'coverflow'}
                                         grabCursor={true}
@@ -123,28 +120,21 @@ export default function ProductosHome() {
                                         coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
                                         navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
                                         autoplay={{ delay: 3000 }}
-                                        pagination={{ clickable: true, }}
+                                        pagination={{ clickable: true }}
                                         onSwiper={(swiper) => {
                                             console.log(swiper);
                                             swiperRef.current = swiper;
                                         }}
 
                                     >
-                                        <SwiperSlide  >
-                                            <img src={item?.cover_photo} alt="" />
-                                        </SwiperSlide>
-                                        <SwiperSlide  >
-                                            <img src={item?.cover_photo2} alt="" />
-                                        </SwiperSlide>
-                                        <SwiperSlide  >
-                                            <img src={item?.cover_photo3} alt="" />
-                                        </SwiperSlide>
-                                        <SwiperSlide  >
-                                            <img src={item?.cover_photo4} alt="" />
-                                        </SwiperSlide>
-
+                                        {[item.cover_photo, item.cover_photo2, item.cover_photo3, item.cover_photo4].map((image, index) => (
+                                            image && (
+                                                <SwiperSlide key={index} >
+                                                    <img src={image} alt="" />
+                                                </SwiperSlide>
+                                            )
+                                        ))}
                                     </Swiper>
-
                                     <div className='cardText'>
                                         <h3>{item.title.slice(0, 22)}..</h3>
                                         <p>{item.description.slice(0, 50)}...</p>
@@ -152,9 +142,12 @@ export default function ProductosHome() {
                                     </div>
                                 </Anchor>
                             </SwiperSlide>
-
                         ))
                     }
+
+
+
+
 
 
                 </Swiper>

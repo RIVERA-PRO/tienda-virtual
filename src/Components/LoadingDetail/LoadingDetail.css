@@ -1,11 +1,11 @@
 .detailLoading{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+  
     gap: 2rem;
 }
 .imgPrincipal{
-    width: 90vh;
+    width: 80vh;
     height: 70vh;
     background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
     background-size: 400% 400%;
@@ -31,7 +31,7 @@
     animation: gradientMove 1s linear infinite;
     -webkit-animation: gradientMove 1s linear infinite;
     border-radius: 10px;
-    width: 100vh;
+   
     height: 5vh;
     border-radius: 10px;
 }
@@ -41,7 +41,7 @@
     animation: gradientMove 1s linear infinite;
     -webkit-animation: gradientMove 1s linear infinite;
     border-radius: 10px;
-    width: 100vh;
+  
     height: 2vh;
     border-radius: 10px;
 }

@@ -9,11 +9,14 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link as Anchor } from "react-router-dom";
 import 'swiper/swiper-bundle.min.css'; // Import Swiper styles
+import { Modal } from 'react-responsive-modal';
 export default function Detail() {
-    const { id } = useParams(); // Obtener el user_id de los parámetros de la URL
+    const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [producto, setProducto] = useState(null);
     const swiperRef = useRef(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
 
     SwiperCore.use([Navigation, Pagination, Autoplay]);
@@ -45,70 +48,90 @@ export default function Detail() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+    const images = [producto?.cover_photo, producto?.cover_photo2, producto?.cover_photo3, producto?.cover_photo4].filter(image => !!image);
+    const openModal = (index) => {
+        setCurrentImageIndex(index);
+        setIsModalOpen(true);
+    };
 
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
     return (
         <div className="detail-contain">
             {loading ? (
                 <LoadingDetail />
             ) : producto ? (
 
-                <div className="detail">
-                    <div className="deColum">
-                        <Swiper
-                            effect={'coverflow'}
-                            grabCursor={true}
-                            loop={true}
-                            slidesPerView={'auto'}
-                            coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
-                            navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
-                            autoplay={{ delay: 3000 }}
-                            pagination={{ clickable: true, }}
-                            onSwiper={(swiper) => {
-                                console.log(swiper);
-                                swiperRef.current = swiper;
-                            }}
-                            id={"swiperDetail"}
-                        >
-                            <SwiperSlide id={"swiperImgDetail"} >
-                                <img src={producto.cover_photo} alt="" />
-                            </SwiperSlide>
+                <>
+                    <div className="detail">
 
-                            <SwiperSlide id={"swiperImgDetail"} >
-                                <img src={producto?.cover_photo2} alt="" />
-                            </SwiperSlide>
-                            <SwiperSlide id={"swiperImgDetail"} >
-                                <img src={producto?.cover_photo3} alt="" />
-                            </SwiperSlide>
-                            <SwiperSlide id={"swiperImgDetail"} >
-                                <img src={producto?.cover_photo4} alt="" />
-                            </SwiperSlide>
+                        <div className="deFleximg">
+                            <div className="imgDivs">
+                                {images.map((image, index) => (
 
-                        </Swiper>
+                                    <img src={image} alt="" onClick={() => openModal(index)} />
 
+                                ))}
+                            </div>
+                            <Swiper
+                                effect={'coverflow'}
+                                grabCursor={true}
+                                loop={true}
+                                slidesPerView={'auto'}
+                                coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
+                                navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
+                                autoplay={{ delay: 3000 }}
+                                pagination={{ clickable: true }}
+                                onSwiper={(swiper) => {
+                                    console.log(swiper);
+                                    swiperRef.current = swiper;
+                                }}
+                                id={"swiperDetail"}
+                            >
+                                {images.map((image, index) => (
+                                    <SwiperSlide key={index} id={"swiperImgDetail"} onClick={() => openModal(index)}>
+                                        <img src={image} alt="" />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+
+                        </div>
+                        <div className="deColumText">
+                            <h1>{producto.title}</h1>
+                            <Anchor to={`/products`}>
+                                Categoria / {producto.categoria}
+                            </Anchor>
+                            <h2>$ {producto.price}</h2>
+
+
+                            <div className="btns_final">
+
+                                <button className="agregar">
+                                    Agregar al carrrito
+                                </button>
+                                <button className="comprar">
+                                    Comprar
+                                </button>
+
+                            </div>
+                        </div>
+
+
+                        <Modal open={isModalOpen} onClose={closeModal} center>
+                            <img src={images[currentImageIndex]} alt="" className="modal-image" /> {/* Agrega una clase para la imagen del modal */}
+                        </Modal>
                     </div>
-                    <div className="deColum">
-                        <h1>{producto.title}</h1>
-                        <h2>$ {producto.price}</h2>
-                        <Anchor to={`/${producto.categoria}`}>
-                            {producto.categoria}
-                        </Anchor>
-                        <p>{producto.description}</p>
-
-
-                        <div className="btns_final">
-
-                            <button className="agregar">
-                                Agregar al carrrito
-                            </button>
-                            <button className="comprar">
-                                Comprar
-                            </button>
+                    <div className="detalles">
+                        <div>
+                            <h3>Descripción</h3>
+                            <p className="description">{producto.description}</p>
+                        </div>
+                        <div className="deColumText">
 
                         </div>
                     </div>
-
-
-                </div>
+                </>
             ) : (
                 <p>No se encontró la publicación.</p>
             )}

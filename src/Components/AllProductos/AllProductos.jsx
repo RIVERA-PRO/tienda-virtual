@@ -177,18 +177,13 @@ export default function AllProductos() {
                                                 swiperRef.current = swiper;
                                             }}
                                         >
-                                            <SwiperSlide>
-                                                <img src={item?.cover_photo} alt="" />
-                                            </SwiperSlide>
-                                            <SwiperSlide>
-                                                <img src={item?.cover_photo2} alt="" />
-                                            </SwiperSlide>
-                                            <SwiperSlide>
-                                                <img src={item?.cover_photo3} alt="" />
-                                            </SwiperSlide>
-                                            <SwiperSlide>
-                                                <img src={item?.cover_photo4} alt="" />
-                                            </SwiperSlide>
+                                            {[item.cover_photo, item.cover_photo2, item.cover_photo3, item.cover_photo4].map((image, index) => (
+                                                image && (
+                                                    <SwiperSlide key={index} >
+                                                        <img src={image} alt="" />
+                                                    </SwiperSlide>
+                                                )
+                                            ))}
                                         </Swiper>
                                         <div className='cardText'>
                                             <h3>{item.title.slice(0, 25)}</h3>

@@ -19,6 +19,31 @@
   
 }
 
+.dashboardGridMain{
+    display: grid;
+    grid-template-areas:  "navbarDashboard sectionDashboard "!important;
+   background-color: var(--gris);
+   align-items: start; 
+   align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.sectionDashboardMain{
+    background-color: var(--blanco);
+    min-width: 99%;
+    max-width:  99%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.221);
+    padding: 70px 2%;
+    border-radius: 7px;
+   
+  
+}
+.sectionDashboard2{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
 @media (max-width: 760px) {
     .dashboardGrid{
         display: flex;
@@ -28,6 +53,7 @@
       
         min-width: 100%;
         max-width: 100%;
+        height: 100%;
      
     }
 }

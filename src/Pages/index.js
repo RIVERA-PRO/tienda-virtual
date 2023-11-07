@@ -11,6 +11,7 @@ import MainDashboard from "../Components/MainDashboard/MainDashboard";
 import CrearProducto from "../Components/CrearProducto/CrearProducto";
 import ProductosDashboard from "../Components/ProductosDashboard/ProductosDashboard";
 import AllProductos from "../Components/AllProductos/AllProductos";
+import AllUsersDashboard from "../Components/AllUsersDashboard/AllUsersDashboard";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
             {
                 path: "/productos",
                 element: <ProductosDashboard />,
+            },
+            {
+                path: "/usuarios",
+                element: <AllUsersDashboard />,
             },
 
         ],

@@ -35,6 +35,7 @@ export default function Register() {
       [formInputs[1].name]: formInputs[1].value,
       [formInputs[2].name]: formInputs[2].value || 'https://i.postimg.cc/VNyHKfFn/gratis-png-perfil-de-usuario-iconos-de-la-computadora-interfaz-de-usuario-mistica.png',
       [formInputs[3].name]: formInputs[3].value,
+
     }
 
     let url = 'https://tiendavirtual-qleq.onrender.com/users/signup'

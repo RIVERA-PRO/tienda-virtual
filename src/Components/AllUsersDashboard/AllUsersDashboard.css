@@ -1,0 +1,84 @@
+.modal-edit{
+    background-color: rgba(0, 0, 0, 0.316);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100vh;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.submodal-edit{
+    background-color: var(--blanco);
+   
+    gap: 2rem;
+    padding: 20px;
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.deFlexBtns{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+.deFlexBtns button{
+    border: none;
+    padding: 10px 20px;
+    color: var(--blanco);
+    border-radius: 6px;
+    margin-top: 4rem;
+}
+
+.submodal-edit select{
+        width: 100%;
+        border: 1px solid var(--input);
+        border-radius: 4px;
+        padding: 10px 10px;
+      
+}
+.submodal-edit input{
+    width: 50vh;
+    border: 1px solid var(--input);
+    border-radius: 4px;
+    padding: 10px 10px;
+  
+}
+.submodal-edit textarea{
+    width: 50vh;
+    border: 1px solid var(--input);
+    border-radius: 4px;
+    padding: 10px 10px;
+  
+}
+@media (max-width: 700px) {
+    .submodal-edit {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        width: 100%;
+        padding: 10px;
+    }
+    .submodal-edit   select{
+        width: 100%;
+        font-size: 12px;
+    }
+    .submodal-edit  textarea{
+        width: 100%;
+        font-size: 12px;
+        min-height: 10vh;
+    }
+    .submodal-edit input  {
+        width: 100%;
+        font-size: 12px;
+
+    }
+    .modal-edit{
+        max-height: auto!important;
+        padding: 10px;
+    }
+}

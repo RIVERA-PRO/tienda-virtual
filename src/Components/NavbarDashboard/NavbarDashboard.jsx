@@ -54,7 +54,8 @@ export default function NavbarDashboard() {
             <Anchor to='/usuarios'>
                 <FontAwesomeIcon icon={faUser} /> Usuarios
             </Anchor>
-            <Anchor to='/productos'>
+
+            <Anchor to='/productos' className={location.pathname === '/productos' ? 'activeLink' : ''}>
                 <FontAwesomeIcon icon={faBox} /> Productos
             </Anchor>
             <Anchor to='/compras'>

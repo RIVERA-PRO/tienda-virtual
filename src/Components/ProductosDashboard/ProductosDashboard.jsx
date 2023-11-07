@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ProductosDashboard.css';
+
 import { Link as Anchor } from "react-router-dom";
 import axios from 'axios';
 import NavbarDashboard from '../NavbarDashboard/NavbarDashboard'
@@ -11,7 +12,15 @@ export default function ProductosDashboard() {
     const [productos, setProductos] = useState([]);
     const [showSpiral, setShowSpiral] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
-
+    const [editedTitle, setEditedTitle] = useState(null);
+    const [editedPrice, setEditedPrice] = useState(null);
+    const [editedDescription, setEditedDescription] = useState(null);
+    const [editedCategoria, setEditedCategoria] = useState(null);
+    const [editedCover_photo, setEditedCover_photo] = useState(null);
+    const [editedCover_photo2, setEditedCover_photo2] = useState(null);
+    const [editedCover_photo3, setEditedCover_photo3] = useState(null);
+    const [editedCover_photo4, setEditedCover_photo4] = useState(null);
+    const [selectedUserId, setSelectedUserId] = useState(null);
     useEffect(() => {
         axios
             .get('https://tiendavirtual-qleq.onrender.com/publicacion')
@@ -87,33 +96,106 @@ export default function ProductosDashboard() {
 
 
 
+    const handleEditUsuario = (id, title, price, description, categoria, cover_photo, cover_photo2, cover_photo3, cover_photo4) => {
+        setSelectedUserId(id);
+        setEditedTitle(title);
+        setEditedPrice(price);
+        setEditedDescription(description);
+        setEditedCategoria(categoria);
+        setEditedCover_photo(cover_photo);
+        setEditedCover_photo2(cover_photo2);
+        setEditedCover_photo3(cover_photo3);
+        setEditedCover_photo4(cover_photo4);
+    };
+    const handleCancelEdit = () => {
+        setEditedTitle(null);
+        setSelectedUserId(null);
+    };
 
+    const handleSaveEdit = async () => {
+        if (selectedUserId !== null && editedPrice !== null) {
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`
+            };
+
+            try {
+                await axios.put(`https://tiendavirtual-qleq.onrender.com/publicacion/${selectedUserId}`, {
+                    title: editedTitle,
+                    price: editedPrice,
+                    description: editedDescription,
+                    categoria: editedCategoria,
+                    cover_photo: editedCover_photo,
+                    cover_photo2: editedCover_photo2,
+                    cover_photo3: editedCover_photo3,
+                    cover_photo4: editedCover_photo4
+
+
+                }, {
+                    headers,
+                });
+
+                const updatedProducts = productos.map((usuario) => {
+                    if (usuario._id === selectedUserId) {
+                        return { ...usuario, is_admin: editedPrice };
+                    }
+                    return usuario;
+                });
+
+                setProductos(updatedProducts);
+                setEditedTitle(null);
+                setSelectedUserId(null);
+                const response = await axios.get('https://tiendavirtual-qleq.onrender.com/publicacion');
+                setProductos(response.data.publicaciones);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Rol de usuario actualizado',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            } catch (error) {
+                console.error(error);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Error al actualizar el rol de usuario',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+    };
 
     return (
         <div className='dashboardGrid'>
             <NavbarDashboard />
             <section className='sectionDashboard'>
                 {showSpiral &&
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th className='descripcion'>Id</th>
-                                <th className='descripcion'>Titulo</th>
-                                <th className='descripcion'>Precio</th>
-                                <th className='descripcion'>Descripción</th>
-                                <th>Categoria</th>
-                                <th>Imagen 1</th>
-                                <th>Imagen 2</th>
-                                <th>Imagen 3</th>
-                                <th>Imagen 4</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td className="noResult" colSpan="9">Cargando</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div className="table-container">
+
+
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th className='descripcion'>Id</th>
+                                    <th className='descripcion'>Titulo</th>
+                                    <th className='descripcion'>Precio</th>
+                                    <th className='descripcion'>Descripción</th>
+                                    <th>Categoria</th>
+                                    <th>Imagen 1</th>
+                                    <th>Imagen 2</th>
+                                    <th>Imagen 3</th>
+                                    <th>Imagen 4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className="noResult" colSpan="9">Cargando</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 }
                 {!showSpiral && (
                     <div>
@@ -165,10 +247,90 @@ export default function ProductosDashboard() {
                                                     >
                                                         delete
                                                     </span>
+                                                    <span
+                                                        className="material-icons"
+                                                        style={{ cursor: "pointer", color: "#0074E4", marginLeft: "10px" }}
+                                                        onClick={() => handleEditUsuario(item._id, item.title, item.price, item.description, item.categoria, item.cover_photo, item.cover_photo2, item.cover_photo3, item.cover_photo4)}
+                                                    >
+                                                        edit
+                                                    </span>
                                                 </td>
                                             </tr>
                                         ))}
                                     </tbody>
+                                    {selectedUserId !== null && editedTitle !== null && (
+                                        <div className='modal-edit'>
+                                            <div className='submodal-edit'>
+                                                <div className='inputs'>
+                                                    <label>Titulo</label>
+                                                    <input
+                                                        value={editedTitle}
+                                                        onChange={(e) => setEditedTitle(e.target.value)}
+                                                    />
+                                                </div>
+                                                <div className='inputs'>
+                                                    <label>Precio</label>
+                                                    <input
+                                                        value={editedPrice}
+                                                        onChange={(e) => setEditedPrice(e.target.value)}
+                                                    ></input>
+                                                </div>
+                                                <div className='inputs'>
+                                                    <label>Descripcion</label>
+                                                    <textarea
+                                                        value={editedDescription}
+                                                        onChange={(e) => setEditedDescription(e.target.value)}
+                                                    ></textarea>
+                                                </div>
+
+
+                                                <select
+                                                    required
+                                                    value={editedCategoria}
+                                                    onChange={(e) => setEditedCategoria(e.target.value)}
+                                                >
+                                                    <option value="Zapatilla">Zapatilla</option>
+                                                    <option value="Pantalon">Pantalon</option>
+                                                    <option value="Remera">Remera</option>
+                                                </select>
+                                                <div className='inputs'>
+                                                    <label>Foto de portada</label>
+                                                    <input
+                                                        value={editedCover_photo}
+                                                        onChange={(e) => setEditedCover_photo(e.target.value)}
+                                                    ></input>
+                                                </div>
+
+                                                <div className='inputs'>
+                                                    <label>Imagen 2</label>
+                                                    <input
+                                                        value={editedCover_photo2}
+                                                        onChange={(e) => setEditedCover_photo2(e.target.value)}
+                                                    ></input>
+                                                </div>
+
+                                                <div className='inputs'>
+                                                    <label>Imagen 3</label>
+                                                    <input
+                                                        value={editedCover_photo3}
+                                                        onChange={(e) => setEditedCover_photo3(e.target.value)}
+                                                    ></input>
+                                                </div>
+                                                <div className='inputs'>
+                                                    <label>Imagen 4</label>
+                                                    <input
+                                                        value={editedCover_photo4}
+                                                        onChange={(e) => setEditedCover_photo4(e.target.value)}
+                                                    ></input>
+                                                </div>
+
+                                                <div className='deFlexBtns'>
+                                                    <button onClick={handleSaveEdit} style={{ cursor: "pointer", backgroundColor: "red" }}>Guardar</button>
+                                                    <button onClick={() => handleCancelEdit()} style={{ cursor: "pointer", backgroundColor: "#0074E4" }} >Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
                                 </table>
                             ) : (
                                 <table className="table">

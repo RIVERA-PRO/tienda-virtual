@@ -17,11 +17,11 @@ export default function AllUsersDashboard() {
         axios
             .get('https://tiendavirtual-qleq.onrender.com/users')
             .then((response) => {
-                setTimeout(() => {
-                    setUsuarios(response.data.users);
-                    setShowSpiral(false);
-                    console.log(response.data.users);
-                }, 2000);
+
+                setUsuarios(response.data.users);
+                setShowSpiral(false);
+                console.log(response.data.users);
+
             })
             .catch((error) => {
                 console.error('Error al obtener los usuarios:', error);

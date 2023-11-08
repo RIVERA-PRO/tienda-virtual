@@ -20,10 +20,10 @@ export default function AllProductos() {
         axios
             .get('https://tiendavirtual-qleq.onrender.com/publicacion')
             .then((response) => {
-                setTimeout(() => {
-                    setProductos(response.data.publicaciones);
-                    setShowSpiral(false);
-                }, 2000);
+
+                setProductos(response.data.publicaciones);
+                setShowSpiral(false);
+
             })
             .catch((error) => {
                 console.error('Error al obtener los productos:', error);

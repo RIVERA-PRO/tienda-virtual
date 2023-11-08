@@ -24,36 +24,25 @@ export default function Carrito() {
         axios
             .get(`https://tiendavirtual-qleq.onrender.com/carrito`)
             .then((response) => {
-                const groupedProducts = groupProductsByPublicacionId(response?.data?.producs);
-                setProducts(groupedProducts);
+                setProducts(response?.data?.producs);
                 setShowSpiral(false);
-                calculateTotalPrice(groupedProducts);
             })
             .catch((error) => {
                 console.error('Error al obtener los productos:', error);
             });
     }, []);
 
-    const groupProductsByPublicacionId = (products) => {
-        const groupedProducts = {};
-        products.forEach((product) => {
-            const publicacionId = product.publicacion_id;
-            if (!groupedProducts[publicacionId]) {
-                groupedProducts[publicacionId] = {
-                    ...product,
-                    quantity: 1,
-                };
-            } else {
-                groupedProducts[publicacionId].quantity += 1;
-            }
-        });
-        return Object.values(groupedProducts);
-    };
 
-    const calculateTotalPrice = (products) => {
-        const total = products.reduce((accumulator, product) => {
-            return accumulator + product.price * product.quantity;
-        }, 0);
+    useEffect(() => {
+        calculateTotalPrice();
+    }, [products]);
+
+    const calculateTotalPrice = () => {
+        const total = products
+            .filter((item) => item.user_id._id === userData?.user_id)
+            .reduce((accumulator, product) => {
+                return accumulator + product.price;
+            }, 0);
         setTotalPrice(total);
     };
 
@@ -105,6 +94,34 @@ export default function Carrito() {
 
 
 
+    const handleBuy = () => {
+        console.log("products en el frontend:", products);
+
+        const token = localStorage.getItem('token');
+        const headers = {
+            'Authorization': `Bearer ${token}`
+        };
+
+        // Filtra los productos del usuario actual
+        const userProducts = products.filter((item) => item.user_id._id === userData?.user_id);
+
+        // Crea una lista de detalles completos de los productos
+        const productsDetails = userProducts.map((item) => ({
+            id: item._id,
+            title: item.title,
+            price: item.price,
+            categoria: item.categoria,
+            link: `https://tiendavirtual-qleq.onrender.com/producto/${item._id}`
+
+        }));
+
+        console.log("Detalles de productos en el frontend:", productsDetails);
+
+        // En lugar de enviar solo productIds, envía los detalles completos de los productos
+        axios
+            .post("https://tiendavirtual-qleq.onrender.com/buy", { products: productsDetails }, { headers })
+            .then(res => window.location.href = res.data.response.body.init_point);
+    };
 
 
 
@@ -123,14 +140,18 @@ export default function Carrito() {
                                     <img src={item.cover_photo} alt="" />
                                     <div className='cardCarritoText'>
                                         <h3>{item.title}</h3>
-                                        <p>{item.categoria}</p>
+                                        <div className='deFlexver'>
+                                            <p>{item.categoria}</p>
+                                            <p>$ {item.price}</p>
+                                        </div>
 
-                                        <p>Cantidad: {item.quantity}</p>
-
-                                        <Anchor to={`/producto/${item.publicacion_id}`}>Ver</Anchor>
-                                        <button onClick={() => handleDeleteProduct(item._id)}>
-                                            <FontAwesomeIcon icon={faTrash} /> Eliminar
-                                        </button>
+                                        <p>Cantidad: 1</p>
+                                        <div className='deFlexver'>
+                                            <Anchor to={`/producto/${item.publicacion_id}`}>Ver</Anchor>
+                                            <button onClick={() => handleDeleteProduct(item._id)}>
+                                                <FontAwesomeIcon icon={faTrash} /> Eliminar
+                                            </button>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -145,7 +166,10 @@ export default function Carrito() {
                     {products
                         .filter((item) => item.user_id._id === userData?.user_id)
 
-                        && <p>Precio Total: {totalPrice}</p>
+                        && <div className='card_pago'>
+                            <h2>Total: $ {totalPrice}</h2>
+                            <button className="agregar" onClick={handleBuy}>comprar</button>
+                        </div>
                     }
 
                 </div>

@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link as Anchor } from "react-router-dom";
 import 'swiper/swiper-bundle.min.css'; // Import Swiper styles
 import { Modal } from 'react-responsive-modal';
+import Swal from 'sweetalert2';
 export default function Detail() {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
@@ -57,6 +58,62 @@ export default function Detail() {
     const closeModal = () => {
         setIsModalOpen(false);
     };
+
+
+
+    const handleAddToCart = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            };
+
+            const productData = {
+
+                title: producto.title,
+                categoria: producto.categoria,
+                description: producto.description,
+                price: producto.price,
+                cover_photo: producto.cover_photo,
+                publicacion_id: producto._id,
+            };
+
+            const response = await fetch(`https://tiendavirtual-qleq.onrender.com/carrito/${producto._id}`, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify(productData),
+
+            });
+
+            if (response.ok) {
+                // Producto agregado con éxito
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto agregado al carrito',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            } else {
+                console.error('Error al agregar el producto al carrito:', response.status);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al agregar el producto al carrito',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            }
+        } catch (error) {
+            console.error('Error al agregar el producto al carrito:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al agregar el producto al carrito',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        }
+    };
+
     return (
         <div className="detail-contain">
             {loading ? (
@@ -107,8 +164,8 @@ export default function Detail() {
 
                             <div className="btns_final">
 
-                                <button className="agregar">
-                                    Agregar al carrrito
+                                <button className="agregar" onClick={handleAddToCart}>
+                                    Agregar al carrito
                                 </button>
                                 <button className="comprar">
                                     Comprar

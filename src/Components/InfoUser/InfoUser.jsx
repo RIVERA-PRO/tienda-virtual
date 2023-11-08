@@ -28,6 +28,7 @@ function ProfilePage({ handleLogout }) {
         <div>
           <Anchor to={`/perfil/${userData.user_id}`} >
             <img src={userData.photo} alt="" />
+
           </Anchor>
 
         </div>

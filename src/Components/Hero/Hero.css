@@ -26,13 +26,14 @@
 
 @media (max-width: 800px){
     .heroContain {
-        padding-top: 10vh;
-      
+        padding: 0px 3%;
+        padding-top: 9vh;
+       
     }
 
     #swiper_container_img{
         width: 100%;
-        height: 25vh;
+        height: 20vh;
         overflow: hidden;
         border-radius: 10px;
     }

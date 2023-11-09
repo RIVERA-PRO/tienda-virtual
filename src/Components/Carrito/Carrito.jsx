@@ -142,14 +142,14 @@ export default function Carrito() {
                                         <h3>{item.title}</h3>
                                         <div className='deFlexver'>
                                             <p>{item.categoria}</p>
-                                            <p>$ {item.price}</p>
+                                            <h4>$ {item.price}</h4>
                                         </div>
 
-                                        <p>Cantidad: 1</p>
+
                                         <div className='deFlexver'>
-                                            <Anchor to={`/producto/${item.publicacion_id}`}>Ver</Anchor>
+                                            <Anchor to={`/producto/${item.publicacion_id}`}>Ver producto</Anchor>
                                             <button onClick={() => handleDeleteProduct(item._id)}>
-                                                <FontAwesomeIcon icon={faTrash} /> Eliminar
+                                                <FontAwesomeIcon icon={faTrash} />
                                             </button>
                                         </div>
                                     </div>
@@ -167,7 +167,11 @@ export default function Carrito() {
                         .filter((item) => item.user_id._id === userData?.user_id)
 
                         && <div className='card_pago'>
-                            <h2>Total: $ {totalPrice}</h2>
+                            <h2>Resumen de Compra</h2>
+                            <div className='deFlexTotal'>
+                                <h3>Total: </h3>
+                                <h3>$ {totalPrice}</h3>
+                            </div>
                             <button className="agregar" onClick={handleBuy}>comprar</button>
                         </div>
                     }

@@ -1,19 +1,16 @@
 .carrito{
-    padding: 100px 2%;
-    
+    padding: 100px 10%;
+    background-color: var(--gris);
    
 }
 .carritoGrid{
-    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-    gap: 5rem;
-    padding: 40px 2%;
-    border: none;
-   
- 
-
+    grid-template-areas:  "cardsCarrito  card_pago "!important;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
 }
+
 .cardsCarrito{
     display: flex;
     gap: 2rem;
@@ -25,20 +22,23 @@
    object-fit: cover;
 }
 .cardCarrito{
-    width: 100%;
-    height: 22vh;
+
+    width: 90vh;
     overflow: hidden;
     border-radius: 10px;
     border: 0.3px solid #00000037;
     display: flex;
-    gap: 1rem;
+  
     background-color: var(--blanco);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.049);
+   
 }
 
 .card_pago{
-    width: 40vh;
-    height: 16vh;
+    width: 50vh;
+   
+    height: 12.5rem;
+  
     overflow: hidden;
     border-radius: 10px;
     border: 0.3px solid #00000037;
@@ -47,23 +47,36 @@
     gap: 1rem;
     background-color: var(--blanco);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.049);
-    padding: 10px ;
+    padding: 20px ;
+  
 }
 .cardCarritoText {
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     gap: 6px;
-    padding: 10px;
+    padding: 10px 30px;
 }
 .cardCarritoText a{
-    color: var(--color1);
+    background-color:  var(--color1);
+    color: var(--blanco);
+    padding: 4px 10px;
+    border-radius: 4px;
+   font-size: 14px;
+}
+.cardCarritoText h3{
+    color: var(--text-color1);
+}
+.cardCarritoText p{
+    color: var(--text-color2);
 }
 .cardCarritoText button{
     color: red;
     border: none;
     background-color: transparent;
     cursor: pointer;
+    font-size: 17px;
 }
 .deFlexver{
     width: 100%;
@@ -73,30 +86,81 @@
    
 }
 
-.card_pago h2{
+.card_pago h2 {
     color: var(--text-color2);
+    padding-bottom: 15px;
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.21);
+    font-size: 20px;
 }
-@media (max-width: 760px){
-    
-.card_pago{
-    width: 100%;
-    height: 16vh;
-   
+.card_pago  h3{
+    color: green;
 }
+.deFlexTotal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.21);
+    padding-bottom: 15px;
+}
+@media (max-width: 1024px){
+    .card_pago{
+        width: 100%;
+        padding: 10px;
+        height: 11rem;
+    }
+    .cardCarrito{
+        width: 100%;
+    }
+    .card_pago  h3{
+        font-size: 15px;
+    }
+    .card_pago  h2{
+        font-size: 17px;
+    }
 .carrito img{
     width: 100px;
     height: 100%;
     object-fit: cover;
  }
- .cardCarrito{
+ .cardCarritoText{
     width: 100%;
     height: auto;
+    padding: 10px 10px;
 
 }
 .cardCarritoText h3{
    font-size: 15px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-width: 20ch;
+  
 }
+.cardCarritoText h4{
+    font-size: 15px;
+   
+ }
 .cardCarritoText p{
     font-size: 13px;
  }
+ .cardCarritoText button{
+    font-size: 13px;
+ }
+ .cardCarritoText a{
+    background-color:  var(--color1);
+    color: var(--blanco);
+    padding: 2px 8px;
+    border-radius: 4px;
+   font-size: 11px;
+ }
+ .carritoGrid{
+    display: flex;
+    flex-direction: column;
+ }
+ .carrito{
+    padding: 100px 3%;
+    background-color: var(--gris);
+   
+}
+
 }

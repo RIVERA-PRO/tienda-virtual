@@ -33,13 +33,14 @@
     overflow-x: scroll;
      gap: 75%;
      margin-top: 4px;
+     padding: 10px 3%;
    }
 .imgOfertas{
     gap: 10px;
 }
    .imgOfertas img{
     width: 40vh;
-    height: 20vh;
+    height: 18vh;
    
 }
 

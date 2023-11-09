@@ -6,7 +6,8 @@ import 'swiper/swiper-bundle.css';
 import { Link as Anchor } from "react-router-dom";
 import './AllProductos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 import img from '../../images/3.png'
 export default function AllProductos() {
     const [productos, setProductos] = useState([]);
@@ -52,7 +53,59 @@ export default function AllProductos() {
             setSelectedCategories([...selectedCategories, categoria]);
         }
     };
+    const handleAddToCart = async (item) => {
+        try {
+            const token = localStorage.getItem('token');
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            };
 
+            const productData = {
+
+                title: item.title,
+                categoria: item.categoria,
+                description: item.description,
+                price: item.price,
+                cover_photo: item.cover_photo,
+                publicacion_id: item._id,
+            };
+
+
+            const response = await fetch(`https://tiendavirtual-qleq.onrender.com/carrito/${item._id}`, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify(productData),
+
+            });
+            console.log(productData)
+            if (response.ok) {
+                // Producto agregado con éxito
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto agregado al carrito',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            } else {
+                console.error('Error al agregar el producto al carrito:', response.status);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al agregar el producto al carrito',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            }
+        } catch (error) {
+            console.error('Error al agregar el producto al carrito:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al agregar el producto al carrito',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        }
+    };
     return (
         <div>
 
@@ -188,7 +241,12 @@ export default function AllProductos() {
                                         <div className='cardText'>
                                             <h3>{item.title.slice(0, 25)}</h3>
                                             <p>{item.description.slice(0, 50)}...</p>
-                                            <h4>$ {item.price}</h4>
+                                            <div className='deFlexbtns'>
+                                                <h4>$ {item.price}</h4>
+                                                <button className="cart" onClick={() => handleAddToCart(item)}>
+                                                    <FontAwesomeIcon icon={faShoppingCart} />
+                                                </button>
+                                            </div>
                                         </div>
                                     </Anchor>
                                 </SwiperSlide>

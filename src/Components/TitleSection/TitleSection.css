@@ -14,15 +14,17 @@
 }
 @media (max-width: 710px) {
     .titleSection h3{
-        font-size: 20px;
+        font-size: 17px;
+        font-weight: 700;
         
     }
     .titleSection a{
-        font-size: 16px;
+        font-size: 14px;
        
     }
     .titleSection{
-        padding: 10px 3% 0px;
+        padding: 0px 3% 0px;
+        margin-bottom: -10px;
      
     
     }

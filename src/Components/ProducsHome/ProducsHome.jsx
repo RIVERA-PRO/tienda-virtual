@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import { Link as Anchor } from "react-router-dom";
 import axios from 'axios';
-import './ProductosHome.css';
+import './ProducsHome.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Swal from 'sweetalert2';
 import 'swiper/swiper-bundle.css';
-export default function ProductosHome() {
+export default function ProducsHome() {
     const [productos, setProductos] = useState([]);
     const [showSpiral, setShowSpiral] = useState(true);
     const swiperRef = useRef(null);
@@ -110,30 +110,30 @@ export default function ProductosHome() {
                     }}
                     id={"swiper_container_scroll"}
                 >
-                    <SwiperSlide id={"swiperCardScroll"} >
-                        <div className='cardloadin'>
+                    <SwiperSlide id={"swiperCardScroll2"} >
+                        <div className='cardloadin2'>
 
                         </div>
                     </SwiperSlide>
 
 
-                    <SwiperSlide id={"swiperCardScroll"} >
-                        <div className='cardloadin'>
+                    <SwiperSlide id={"swiperCardScroll2"} >
+                        <div className='cardloadin2'>
 
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide id={"swiperCardScroll"} >
-                        <div className='cardloadin'>
+                    <SwiperSlide id={"swiperCardScroll2"} >
+                        <div className='cardloadin2'>
 
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide id={"swiperCardScroll"} >
-                        <div className='cardloadin'>
+                    <SwiperSlide id={"swiperCardScroll2"} >
+                        <div className='cardloadin2'>
 
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide id={"swiperCardScroll"} >
-                        <div className='cardloadin'>
+                    <SwiperSlide id={"swiperCardScroll2"} >
+                        <div className='cardloadin2'>
 
                         </div>
                     </SwiperSlide>
@@ -156,15 +156,15 @@ export default function ProductosHome() {
                         console.log(swiper);
                         swiperRef.current = swiper;
                     }}
-                    id={"swiper_container_scroll"}
+                    id={"swiper_container_scroll2"}
                 >
 
 
 
                     {
                         productos.map((item) => (
-                            <SwiperSlide key={item._id} id={"swiperCardScroll"}>
-                                <div className='cardScroll'>
+                            <SwiperSlide key={item._id} id={"swiperCardScroll2"}>
+                                <div className='cardScroll2'>
 
 
                                     <Anchor to={`producto/${item._id}`}>
@@ -181,7 +181,7 @@ export default function ProductosHome() {
                                                 console.log(swiper);
                                                 swiperRef.current = swiper;
                                             }}
-
+                                            id={"swiperCardScrollImg2"}
                                         >
                                             {[item.cover_photo, item.cover_photo2, item.cover_photo3, item.cover_photo4].map((image, index) => (
                                                 image && (
@@ -192,10 +192,10 @@ export default function ProductosHome() {
                                             ))}
                                         </Swiper>
                                     </Anchor>
-                                    <div className='cardText'>
-                                        <h3>{item.title.slice(0, 22)}..</h3>
+                                    <div className='cardText2'>
+                                        <h3>{item.title.slice(0, 18)}..</h3>
                                         <p>{item.description.slice(0, 50)}...</p>
-                                        <div className='deFlexbtns'>
+                                        <div className='deFlexbtns2'>
                                             <h4>$ {item.price}</h4>
                                             <button className="cart" onClick={() => handleAddToCart(item)}>
                                                 <FontAwesomeIcon icon={faShoppingCart} />

@@ -1,51 +1,47 @@
 import React from 'react'
 import './Footer.css'
-
+import { Link as Anchor, useNavigate, useLocation } from "react-router-dom";
+import logo from '../../images/logo.png'
 export default function Footer() {
 
     return (
         <div className='foter'>
 
-            <div className='contact-footer'>
-                <div>
-                    <h5>Teléfono</h5>
-                    <p>(123) 118 9999 - (123) 118 9999</p>
+
+
+
+            <div className='footerGrid'>
+                <div className='contact-footer'>
+                    <img src={logo} alt="" />
+                    <Anchor>Lorem ipsum dolor sit amet consectetur adipisicing elit. </Anchor>
+
                 </div>
-                <div>
-                    <h5>Direccion</h5>
-                    <p>Salta, Argentina</p>
+                <div className='contact-footer'>
+
+                    <Anchor>3875683101 </Anchor>
+                    <Anchor>Salta, Argentina</Anchor>
+                    <Anchor>modadeportiva@gmail.com</Anchor>
                 </div>
-                <div>
-                    <h5>Correo electrónico</h5>
-                    <p>contactcompany@Gutim.com</p>
+                <div className='contact-footer'>
+
+                    <Anchor to={`/`} >Remeras </Anchor>
+                    <Anchor to={`/`}>Zapatillas </Anchor>
+                    <Anchor to={`/`}>Pantalones </Anchor>
+                </div>
+                <div className='contact-footer'>
+
+                    <Anchor to={`/`} >Remeras </Anchor>
+                    <Anchor to={`/`}>Zapatillas </Anchor>
+                    <Anchor to={`/`}>Pantalones </Anchor>
+                </div>
+                <div className='contact-footer'>
+                    <input type="text" placeholder='Correo electronico' />
+                    <button type="button">Enviar</button>
                 </div>
             </div>
-
-            <div className='fondo-footer'>
-                <div className='form-fondo'>
-                    <div className='form-text'>
-                        <h6>SUSCRÍBASE A NUESTRA LISTA DE CORREO</h6>
-                        <p>Regístrese para recibir la información más reciente</p>
-                    </div>
-                    <form action="">
-                        <fieldset className='formFoter'>
-                            <input type="text" placeholder='Ingrese su email' />
-                            <button type="submit" >
-                                Enviar
-                            </button>
-                        </fieldset>
-
-                    </form>
-                </div>
-            </div>
-
             <div className='Copyright'>
                 <p>Copyright © 2023 Todos los derechos reservados</p>
-                <div class="redes-sociales">
-                    <a href="#"><i class='fa fa-facebook'></i></a>
-                    <a href="#"><i class='fa fa-instagram'></i></a>
-                    <a href="#"> <i class='fa fa-linkedin'></i></a>
-                </div>
+
             </div>
 
 

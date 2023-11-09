@@ -8,7 +8,7 @@ export default function Banner() {
         <div className='bannerConatin'>
 
 
-            <Anchor to={`/zapatillas`}  >
+            <Anchor to={`/products`}  >
 
                 <img src={zapatillas} alt="" className='bannerImg' />
             </Anchor>

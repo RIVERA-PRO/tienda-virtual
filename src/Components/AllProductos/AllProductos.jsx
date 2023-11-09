@@ -212,46 +212,56 @@ export default function AllProductos() {
                         </fieldset>
                     </div>
                     <div className='productosFiltrados'>
-                        {filteredProducts.map((item) => (
-                            <div className='cardProduct'>
-                                <SwiperSlide id={""}>
-                                    <Anchor className='cardScroll' to={`/producto/${item._id}`}>
-                                        <Swiper
-                                            effect={'coverflow'}
-                                            grabCursor={true}
-                                            loop={true}
-                                            slidesPerView={'auto'}
-                                            coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
-                                            navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
-                                            autoplay={{ delay: 3000 }}
-                                            pagination={{ clickable: true }}
-                                            onSwiper={(swiper) => {
-                                                console.log(swiper);
-                                                swiperRef.current = swiper;
-                                            }}
-                                        >
-                                            {[item.cover_photo, item.cover_photo2, item.cover_photo3, item.cover_photo4].map((image, index) => (
-                                                image && (
-                                                    <SwiperSlide key={index} >
-                                                        <img src={image} alt="" />
-                                                    </SwiperSlide>
-                                                )
-                                            ))}
-                                        </Swiper>
-                                        <div className='cardText'>
-                                            <h3>{item.title.slice(0, 25)}</h3>
-                                            <p>{item.description.slice(0, 50)}...</p>
-                                            <div className='deFlexbtns'>
-                                                <h4>$ {item.price}</h4>
-                                                <button className="cart" onClick={() => handleAddToCart(item)}>
-                                                    <FontAwesomeIcon icon={faShoppingCart} />
-                                                </button>
+                        {filteredProducts.length > 0 ? (
+                            filteredProducts.map((item) => (
+                                <div className='cardProduct'>
+                                    <SwiperSlide id={""}>
+                                        <div className='cardScroll'>
+
+
+                                            <Anchor to={`/producto/${item._id}`}>
+                                                <Swiper
+                                                    effect={'coverflow'}
+                                                    grabCursor={true}
+                                                    loop={true}
+                                                    slidesPerView={'auto'}
+                                                    coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
+                                                    navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
+                                                    autoplay={{ delay: 3000 }}
+                                                    pagination={{ clickable: true }}
+                                                    onSwiper={(swiper) => {
+                                                        console.log(swiper);
+                                                        swiperRef.current = swiper;
+                                                    }}
+                                                >
+                                                    {[item.cover_photo, item.cover_photo2, item.cover_photo3, item.cover_photo4].map((image, index) => (
+                                                        image && (
+                                                            <SwiperSlide key={index} >
+                                                                <img src={image} alt="" />
+                                                            </SwiperSlide>
+                                                        )
+                                                    ))}
+                                                </Swiper>
+                                            </Anchor>
+                                            <div className='cardText'>
+                                                <h3>{item.title.slice(0, 25)}</h3>
+                                                <p>{item.description.slice(0, 50)}...</p>
+                                                <div className='deFlexbtns'>
+                                                    <h4>$ {item.price}</h4>
+                                                    <button className="cart" onClick={() => handleAddToCart(item)}>
+                                                        <FontAwesomeIcon icon={faShoppingCart} />
+                                                    </button>
+                                                </div>
                                             </div>
+
                                         </div>
-                                    </Anchor>
-                                </SwiperSlide>
-                            </div>
-                        ))}
+                                    </SwiperSlide>
+                                </div>
+                            ))
+                        ) : (
+                            <p>No se encontraron resultados.</p>
+                        )}
+
                     </div>
                 </div>
             )}

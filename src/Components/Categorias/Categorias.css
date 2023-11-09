@@ -1,13 +1,21 @@
 .categoriasContain{
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-    gap: 2rem;
+    
     padding: 40px 2%;
-    border: none;
+    display: flex;
     justify-content: space-between;
+    justify-content: space-between;
+    overflow-x: scroll;
 }
-
+.categoriasContain::-webkit-scrollbar{
+    width: 7px;
+    height: 1px;
+    cursor: pointer;
+    background-color: transparent;
+    background-color: transparent;
+  }
+  
+ 
 .cardCategoria{
 
     width: 65vh;

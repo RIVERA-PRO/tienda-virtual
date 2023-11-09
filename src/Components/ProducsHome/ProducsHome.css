@@ -1,56 +1,56 @@
 
 .productosHome{
-    padding: 10px 2%;
+    padding: 10px 1%;
 }
 
-#swiper_container_scroll{
-  
+#swiperCardScrollImg2{
+  width: 23vh;
+  height: 9rem;
 }
-#swiperCardScroll{
-    width: 40vh;
+#swiperCardScroll2{
+    width: 65vh;
     margin: 20px 12px;
 }
-.cardScroll{
-    width: 40vh;
-   
+.cardScroll2{
+    width: 65vh;
+    height: 9rem;
     overflow: hidden;
     border-radius: 10px;
     border: 0.3px solid #00000037;
     display: flex;
-    flex-direction: column;
     background-color: var(--blanco);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.097);
 }
 
 
-.cardcardScrollText h3{
+.cardcardScrollText2 h3{
     color: var(--text-color);
     font-size: 16px;
 }
-.cardScroll p{
+.cardScroll2 p{
     color: var(--text-color2);
     font-size: 14px;
+  
+}
+.cardScroll2 h4{
+    color: var(--color1);
+    font-size: 17px;
+    padding: 5px;
    
 }
-.cardScroll h4{
-    color:  var(--color1);
-    font-size: 18px;
-  
-  
-}
-.cardScroll img{
+.cardScroll2 img{
     width: 100%;
-    height: 25vh;
+    height: 100%;
     object-fit: cover;
 }
-.cardText{
+.cardText2{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     gap: 10px;
     padding: 10px;
 }
-.deFlexbtns{
+.deFlexbtns2{
     display: flex;
     justify-content: space-between;
 }
@@ -61,9 +61,9 @@
     border: none;
     font-size: 20px;
 }
-.cardloadin{
-    width: 40vh;
-    height: 45vh;
+.cardloadin2{
+    width: 65vh;
+    height: 9rem;
     background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
     background-size: 400% 400%;
     animation: gradientMove 1s linear infinite;
@@ -81,53 +81,64 @@
   }
   
 @media (max-width: 710px) {
-    .cardScroll{
-        width: 26vh;
-        height: 29vh;
+    .cardScroll2{
+        width: 100%;
+        height: 16vh;
     }
-    .cardScroll p{
+    .cardScroll2 p{
         color: var(--text-color2);
-        font-size: 13px;
-        display: none;
+        font-size: 12px;
+      
     }
-    .cardScroll h4{
-      
-        font-size: 16px;
-      
-        
+    .cardScroll2 h4{
+        color: var(--color1);
+        font-size: 13px;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+     
 }
-    .cardScroll h3{
+    .cardScroll2 h3{
         color: var(--text-color);
         font-size: 15px;
         white-space: nowrap;
-        overflow: hidden;
+        
         text-overflow: ellipsis;
         max-width: 15ch;
         font-weight: 500;
     }
-    #swiperCardScroll{
-        width: 26vh;
-        margin: 15px 6px;
+    #swiperCardScroll2{
+        width: 40vh;
+        margin: 20px 6px;
     }
-    .cardloadin{
-        width: 26vh;
-        height: 29vh;
+    #swiperCardScrollImg2{
+        width: 16vh;
+      }
+    .cardloadin2{
+        width: 40vh;
+        height: 16vh;
         background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
         background-size: 400% 400%;
         animation: gradientMove 1s linear infinite;
         -webkit-animation: gradientMove 1s linear infinite;
         border-radius: 10px;
     }
-    .cardScroll img{
+    .cardScroll2 img{
         width: 100%;
-        height: 17vh;
+        height: 16vh;
         object-fit: cover;
     }
    .cardText{
     padding: 7;
    }
-   .cart{
   
-    font-size: 17px!important;
 }
+@media (max-width: 400px) {
+    #swiperCardScroll2{
+        width: 96%;
+        margin: 15px 6px;
+    }
+    .cardloadin2{
+        width: 100%;
+    }
 }

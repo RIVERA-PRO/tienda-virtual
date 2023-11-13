@@ -275,24 +275,28 @@ export default function ProductosDashboard() {
                                                         onChange={(e) => setEditedPrice(e.target.value)}
                                                     ></input>
                                                 </div>
+
                                                 <div className='inputs'>
+                                                    <label>Categoria</label>
+                                                    <select
+                                                        required
+                                                        value={editedCategoria}
+                                                        onChange={(e) => setEditedCategoria(e.target.value)}
+                                                    >
+
+                                                        <option value="Zapatilla">Zapatilla</option>
+                                                        <option value="Pantalon">Pantalon</option>
+                                                        <option value="Remera">Remera</option>
+                                                    </select>
+                                                </div>
+
+                                                <div className='inputsDescription'>
                                                     <label>Descripcion</label>
                                                     <textarea
                                                         value={editedDescription}
                                                         onChange={(e) => setEditedDescription(e.target.value)}
                                                     ></textarea>
                                                 </div>
-
-
-                                                <select
-                                                    required
-                                                    value={editedCategoria}
-                                                    onChange={(e) => setEditedCategoria(e.target.value)}
-                                                >
-                                                    <option value="Zapatilla">Zapatilla</option>
-                                                    <option value="Pantalon">Pantalon</option>
-                                                    <option value="Remera">Remera</option>
-                                                </select>
                                                 <div className='inputs'>
                                                     <label>Foto de portada</label>
                                                     <input

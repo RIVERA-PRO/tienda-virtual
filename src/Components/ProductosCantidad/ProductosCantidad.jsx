@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './UsersCantidad.css';
-import { Link as Anchor } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faUser } from '@fortawesome/free-solid-svg-icons';
 
+import { Link as Anchor } from "react-router-dom";
+import { faArrowRight, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function UsersCantidad() {
     const [loading, setLoading] = useState(true);
-    const [users, setUsers] = useState([]);
+    const [producto, setProducto] = useState([]);
 
     useEffect(() => {
         fetchUsers();
@@ -14,11 +13,11 @@ export default function UsersCantidad() {
 
     const fetchUsers = () => {
 
-        fetch('https://tiendavirtual-qleq.onrender.com/users')
+        fetch('https://tiendavirtual-qleq.onrender.com/publicacion')
             .then(response => response.json())
             .then(data => {
 
-                setUsers(data?.users);
+                setProducto(data?.publicaciones);
 
                 setLoading(false);
             })
@@ -44,9 +43,9 @@ export default function UsersCantidad() {
             {loading ? (
                 <div className='cardDashboardCantidad'>
                     <div className='flex'>
-                        <FontAwesomeIcon icon={faUser} className='iconDash' />
+                        <FontAwesomeIcon icon={faShoppingBag} className='iconDash' />
                         <div>
-                            <h4>Usuarios</h4>
+                            <h4>Productos</h4>
                             <h5> Cargando</h5>
 
                         </div>
@@ -60,10 +59,10 @@ export default function UsersCantidad() {
             ) : (
                 <div className='cardDashboardCantidad'>
                     <div className='flex'>
-                        <FontAwesomeIcon icon={faUser} className='iconDash' />
+                        <FontAwesomeIcon icon={faShoppingBag} className='iconDash' />
                         <div>
-                            <h4>Usuarios</h4>
-                            <h3 className='title-cantidad'> {users?.length}</h3>
+                            <h4>Productos</h4>
+                            <h3 className='title-cantidad'> {producto?.length}</h3>
 
                         </div>
                     </div>

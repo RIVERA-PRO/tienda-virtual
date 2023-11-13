@@ -19,13 +19,13 @@
     color: var(--blanco);
     border-radius: 5px;
     font-size: 17px;
-    width: 15vh!important;
-    height:6vh!important;
+    padding: 7px 20px;
     cursor: pointer;
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: center;
+
 }
 .inputs{
     display: flex;

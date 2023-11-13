@@ -1,0 +1,80 @@
+.UserDashboardMain{
+    background-color: var(--blanco);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.221);
+    border-radius: 7px;
+    padding: 15px;
+  
+}
+.cardsMainDashborad{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 7px 20px 7px 7px;
+    border: 0.3px solid #00000021;
+    border-radius: 10px;
+
+}
+.cardsMainDashborad:hover{
+    background-color: #f2f2f28b;
+}
+.cardsMainDashborad img{
+    width: 40px;
+    height: 40px ;
+    object-fit: cover;
+    border-radius: 100%;
+ 
+}
+.cardsMainDashborad h4{
+    color: var(--text-color2);
+    font-size: 14px;
+    font-weight: 500;
+}
+.cardsMainDashborad h5{
+    color: var(--text-color2);
+    font-weight: 500;
+    font-size: 13px;
+}
+.cardsMainDashborad p{
+    color: var(--text-color2);
+    font-weight: 500;
+    font-size: 14px;
+}
+.cardsMainDashboradText{
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 1rem;
+
+}
+.spanImgloading{
+    width: 40px;
+    height: 40px ;
+ 
+    border-radius: 100%;
+    background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
+    background-size: 400% 400%;
+    animation: gradientMove 1s linear infinite;
+    -webkit-animation: gradientMove 1s linear infinite;
+    
+}
+
+.spanItextloading{
+    width: 15rem;
+    height: 10px ;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
+    background-size: 400% 400%;
+    animation: gradientMove 1s linear infinite;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.title_dashboard{
+    color: var(--text-color2);
+    margin-bottom: 1rem;
+}
+

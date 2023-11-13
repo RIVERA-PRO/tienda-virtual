@@ -2,39 +2,65 @@
 .table-container {
     max-height: 50vh;  
     overflow: auto;
-}
-
-.table {
-    width: 100%; 
-    border-collapse: collapse;
-    table-layout: fixed;
-    border: 1px solid #ccc; 
     margin-top: 1rem;
+}
+.table-container::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+ 
+    cursor: pointer;
+    background-color: transparent;
+   
+}
+ 
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: var(--color1); 
+    border-radius: 10px;
+    margin-top: 3rem;
+  }
+  
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+ 
+
+ 
 }
 
 .table th, .table td {
     padding: 8px;
     text-align: left;
-    border: 1px solid #ccc;
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis; 
+    color: var(--text-color2);
 }
-
+.table  td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #dcd9d9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-color2);
+}
 .descripcion {
     min-width: 30vh;
 }
 
 .table th {
     background-color: #f2f2f2;
+    
 }
 
 .table tr:nth-child(even) {
-    background-color: #f2f2f2;
+  
 }
 
 .table tr:hover {
-    background-color: #ddd;
+    background-color: #f2f2f28b;
 }
 
 .noResult {
@@ -43,14 +69,11 @@
 }
 
 .table img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
     border-radius: 100%;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    -o-border-radius: 100%;
+ 
 }
 
 .filterText {
@@ -90,8 +113,8 @@
         font-size: 13px;
     }
     .table img {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         object-fit: cover;
         border-radius: 100%;
         

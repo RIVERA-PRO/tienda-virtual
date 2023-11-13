@@ -11,6 +11,7 @@ import { Link as Anchor } from "react-router-dom";
 import 'swiper/swiper-bundle.min.css'; // Import Swiper styles
 import { Modal } from 'react-responsive-modal';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 export default function Detail() {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
@@ -113,7 +114,33 @@ export default function Detail() {
             });
         }
     };
+    const handleBuy = () => {
+        console.log("products en el frontend:", producto);
 
+        const token = localStorage.getItem('token');
+        const headers = {
+            'Authorization': `Bearer ${token}`
+        };
+
+
+
+        // Crea una lista de detalles completos de los productos
+        const productsDetails = {
+            id: producto._id,
+            title: producto.title,
+            price: producto.price,
+            categoria: producto.categoria,
+            link: `https://tiendavirtual-qleq.onrender.com/producto/${producto._id}`
+
+        };
+
+        console.log("Detalles de productos en el frontend:", productsDetails);
+
+        // En lugar de enviar solo productIds, envía los detalles completos de los productos
+        axios
+            .post("https://tiendavirtual-qleq.onrender.com/buy", { products: productsDetails.price }, { headers })
+            .then(res => window.location.href = res.data.response.body.init_point);
+    };
     return (
         <div className="detail-contain">
             {loading ? (
@@ -167,10 +194,8 @@ export default function Detail() {
                                 <button className="agregar" onClick={handleAddToCart}>
                                     Agregar al carrito
                                 </button>
-                                <button className="comprar">
-                                    Comprar
-                                </button>
 
+                                <button className="comprar" onClick={handleBuy}>comprar</button>
                             </div>
                         </div>
 

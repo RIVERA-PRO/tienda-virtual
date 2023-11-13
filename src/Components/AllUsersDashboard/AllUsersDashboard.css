@@ -9,13 +9,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 20px 5%;
 }
 .submodal-edit{
     background-color: var(--blanco);
    
     gap: 2rem;
-    padding: 20px;
+    padding: 20px 2%;
     border-radius: 6px;
     display: flex;
     flex-wrap: wrap;
@@ -36,7 +36,7 @@
 }
 
 .submodal-edit select{
-        width: 100%;
+        width: 50vh;
         border: 1px solid var(--input);
         border-radius: 4px;
         padding: 10px 10px;
@@ -50,11 +50,18 @@
   
 }
 .submodal-edit textarea{
-    width: 50vh;
+    width: 100%;
     border: 1px solid var(--input);
     border-radius: 4px;
     padding: 10px 10px;
-  
+ 
+}
+
+.inputsDescription{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
 }
 @media (max-width: 700px) {
     .submodal-edit {

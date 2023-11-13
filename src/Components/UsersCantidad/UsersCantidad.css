@@ -1,7 +1,54 @@
 .cardDashboardCantidad{
-    background-color: aqua;
+    background-color: var(--blanco);
     width: 30vh;
-    height: 15vh;
+
     border-radius: 10px;
+  
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.221);
+    margin-bottom: 2rem;
+    overflow: hidden;
     
+}
+.cardDashboardCantidad h3{
+    color: var(--color1);
+}
+.cardDashboardCantidad h4, h5{
+    color: var(--text-color2);
+}
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px;
+}
+.iconDash{
+   font-size: 30px;
+   color: var(--color1);
+   background-color: var(--color3);
+   padding: 10px;
+   border-radius: 7px;
+  
+}
+.cardDashboardCantidad a{
+    background-color: var(--color1);
+    height: 5px;
+}
+.cardDashboardCantidad a{
+    background-color: var(--color1);
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 0px;
+    color: var(--blanco);
+    gap: 10px;
+    
+
+
+}
+.cardDashboardCantidad:hover a{
+    font-size: 14px;
+    height: auto;
+
 }

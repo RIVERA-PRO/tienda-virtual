@@ -134,6 +134,14 @@ export default function AllUsersDashboard() {
             }
         }
     };
+    const maskEmail = (email) => {
+        if (email) {
+            const middleIndex = Math.floor(email.length / 2);
+            const maskedEmail = email.substring(0, middleIndex - 6) + '*******' + email.substring(middleIndex + 1);
+            return maskedEmail;
+        }
+        return '';
+    };
     return (
         <div className='dashboardGrid'>
             <NavbarDashboard />
@@ -190,8 +198,9 @@ export default function AllUsersDashboard() {
                                             <tr key={item._id}>
                                                 <td>{item?._id}</td>
                                                 <td>{item?.name}</td>
-                                                <td>{item?.mail}</td>
-                                                <td>{item?.is_admin ? 'admin' : 'usuario'}</td>
+                                                <td>{maskEmail(item.mail)}</td>
+                                                <td style={{ color: item?.is_admin ? 'green' : 'red' }}>
+                                                    {item?.is_admin ? 'admin' : 'usuario'}</td>
                                                 <td><img src={item?.photo} alt="" /></td>
                                                 <td>
                                                     <span

@@ -1,15 +1,43 @@
 .cantidades{
-    display: flex;
-    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+   
+   
+    margin: auto;
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 2rem;
+  
+
     height: auto;
+    margin-bottom: 2rem;
+    
    
- 
-    background-color: var(--blanco);
     border-radius: 7px;
-}
-.agregado{
-    background-color: aqua;
-    height: 3rem;
    
+    justify-content: space-between;
+   
+   
+}
+
+
+@media (max-width: 1024px) {
+    .cantidades{
+
+     
+ 
+        margin-bottom: 2rem;
+        display: grid;
+       grid-auto-rows: max-content;
+       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+       place-content: center;
+       align-items: center;
+       justify-content: center;
+       align-self: center;
+       align-content: center;
+       
+   
+       
+    }
 }

@@ -2,13 +2,14 @@
    background-color: var(--color1);
    display: flex;
    flex-direction: column;
-   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.221);
-   width: 4rem;
-   min-height: 100vh;
+   width: 4.5rem;
+   min-height:  100vh;
    max-height: 100%;
-   padding: 10px 0rem 0px 6px;
+   padding: 20px 0rem 0% 6px;
    overflow: hidden;
    transition: all 0.2s linear;
+   border-radius: 0px 10px 10px 0px;
+   z-index: 2;
 }
 .navbarDashboard a{
     display: flex;
@@ -22,13 +23,13 @@
   
 }
 .navbarDashboard a:hover{
-    background-color: rgb(254, 254, 254);
+    background-color:var(--gris2);
     width: 100%;
     color: var(--color1);
 }
 
 .activeLink{
-    background-color: rgb(254, 254, 254);
+    background-color:var(--gris2);
     width: 100%;
     color: var(--color1)!important;
 }
@@ -41,40 +42,31 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 10px;
+    margin-left: 6px;
  }
 .spans{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    width: 2rem;
     gap: 4px;
     cursor: pointer;
     margin: 10px;
+    
   
 }
  .spans span{
     background-color: var(--blanco);
     padding: 2px;
-  
-    
-  
- }
- .spans span:nth-child(1) {
-    width: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
    
 }
 
-.spans span:nth-child(2) {
-    width: 25px; 
-   
-}
-
-.spans span:nth-child(3) {
-    width: 35px; 
-  
-}
 .adminInfo img{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 100%;
     object-fit: cover;
     
@@ -91,7 +83,7 @@
     color: var(--blanco);
     font-weight: 400;
 }
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
     .navbarDashboard:hover{
         width: 10%;
     }
@@ -101,19 +93,35 @@
         flex-direction: column;
         min-width: 100%;
         max-width: 10%;
-        height: 6vh;
-        padding: 10px 0px 0px 10px;
+        border-radius: 0px 0px 0px 0px;
+        min-height: 3rem!important;
+        max-height: 3rem!important;
+        padding: 10px 0rem 0% 6px;
         overflow: hidden;
-      
-     }
+       
+     
+}
      .openNav.navbarDashboard{
         min-width: 100%!important;
         max-width: 90%!important;
-        height: 100vh;
+        min-height: 100vh!important;
+        max-height: 100vh!important;
      }
      .spans{
       
         margin: 0;
+        width: 2rem;
+        margin-left: 2%;
+      
       
     }
+    .spans span{
+        background-color: var(--blanco);
+        padding: 2px;
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+       
+    }
+   
 }

@@ -182,7 +182,6 @@ export default function ProductsDashboardMain() {
                                 <th className='descripcion'>Id</th>
                                 <th className='descripcion'>Titulo</th>
                                 <th className='descripcion'>Precio</th>
-
                                 <th>Categoria</th>
                                 <th>Imagen 1</th>
 
@@ -190,7 +189,39 @@ export default function ProductsDashboardMain() {
                         </thead>
                         <tbody>
                             <tr>
-                                <td className="noResult" colSpan="9">Cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                            </tr>
+                            <tr>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                            </tr>
+                            <tr>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                            </tr>
+                            <tr>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                            </tr>
+                            <tr>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
+                                <td className="noResult" >cargando</td>
                             </tr>
                         </tbody>
                     </table>

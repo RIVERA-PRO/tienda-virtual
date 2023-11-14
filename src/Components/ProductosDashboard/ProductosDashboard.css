@@ -22,9 +22,9 @@
   
 .table {
   width: 100%;
+
   border-collapse: collapse;
   table-layout: fixed;
- 
 
  
 }
@@ -38,6 +38,7 @@
     color: var(--text-color2);
 }
 .table  td {
+
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #dcd9d9;
@@ -45,6 +46,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--text-color2);
+    font-size: 14px;
+
+    
+   
 }
 .descripcion {
     min-width: 30vh;
@@ -64,8 +69,19 @@
 }
 
 .noResult {
-    width: 100%;
-    padding: 10px;
+    display:flexbox;
+ 
+    
+ 
+   
+    width: 20rem;
+    height:10px ;
+  
+    border-radius: 7px;
+ 
+  
+    animation: gradientMove 1s linear infinite;
+   
 }
 
 .table img {

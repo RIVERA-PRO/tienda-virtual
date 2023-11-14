@@ -1,0 +1,53 @@
+.PerfilDashboardContain{
+    background-color: var(--blanco);
+  
+    border: 0.3px solid #00000021;
+   
+  
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.221);
+    padding: 10px 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+}
+.PerfilDashboardText img{
+     width: 40px;
+     height: 40px;
+     border-radius:100% ;
+     
+}
+.PerfilDashboardText{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+.PerfilDashboardText p{
+color: var(--text-color);
+}
+.PerfilDashboardText h5{
+    color: var(--text-color2);
+    font-weight: 500;
+    }
+
+    .modalLogout{
+        background-color: var(--blanco);
+        position: absolute;
+        width: 12rem;
+        padding: 10px;
+        border-radius: 7px 0px 7px 7px;
+        margin-top: 3.8rem;
+        z-index: 1;
+        top: 0;
+        margin-right: 2rem;
+        right: 0;
+        display: flex;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.221);
+}
+
+@media (max-width: 1024px){
+    .PerfilDashboardContain{
+        display: none;
+    }
+}

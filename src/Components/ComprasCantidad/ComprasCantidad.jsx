@@ -50,7 +50,10 @@ export default function UsersCantidad() {
 
                         </div>
                     </div>
-                    <Anchor to='/usuarios' >
+                    <Anchor className='linea'>
+                        ---
+                    </Anchor>
+                    <Anchor to='/productos' className='more'>
                         Ver más    <FontAwesomeIcon icon={faArrowRight} />
                     </Anchor>
 
@@ -66,9 +69,13 @@ export default function UsersCantidad() {
 
                         </div>
                     </div>
-                    <Anchor to='/usuarios' >
+                    <Anchor className='linea'>
+                        ---
+                    </Anchor>
+                    <Anchor to='/productos' className='more'>
                         Ver más    <FontAwesomeIcon icon={faArrowRight} />
                     </Anchor>
+
 
                 </div>
 

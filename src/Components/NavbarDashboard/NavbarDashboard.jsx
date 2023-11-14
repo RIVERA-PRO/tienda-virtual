@@ -29,6 +29,7 @@ export default function NavbarDashboard() {
                     <span></span>
                     <span></span>
                     <span></span>
+                    <span></span>
                 </div>
                 {userData ? (
                     <div className='adminInfo'>
@@ -51,7 +52,7 @@ export default function NavbarDashboard() {
             <Anchor to='/' >
                 <FontAwesomeIcon icon={faHome} /> Inicio
             </Anchor>
-            <Anchor to='/usuarios'>
+            <Anchor to='/usuarios' className={location.pathname === '/usuarios' ? 'activeLink' : ''}>
                 <FontAwesomeIcon icon={faUser} /> Usuarios
             </Anchor>
 

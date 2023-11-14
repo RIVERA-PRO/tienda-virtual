@@ -1,13 +1,12 @@
 .cardDashboardCantidad{
     background-color: var(--blanco);
-    width: 30vh;
-
+    width: 100%;
     border-radius: 10px;
-  
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.221);
-    margin-bottom: 2rem;
+    border: 0.3px solid #00000021;
     overflow: hidden;
-    
+    position: relative;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.221);
+
 }
 .cardDashboardCantidad h3{
     color: var(--color1);
@@ -29,26 +28,58 @@
    border-radius: 7px;
   
 }
-.cardDashboardCantidad a{
+.more {
     background-color: var(--color1);
     height: 5px;
+    font-size: 0px;
+   
+  
+    width: 100%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+   display: none;
+   
+
+
 }
-.cardDashboardCantidad a{
+.linea{
+    height: 5px;
+    background-color: var(--color1);
+    width: 100%;
+    display: flex;
+}
+
+.cardDashboardCantidad:hover .more{
+    font-size: 14px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    height: 100%;
+
     background-color: var(--color1);
     padding: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    font-size: 0px;
+    
+   
     color: var(--blanco);
     gap: 10px;
-    
-
-
 }
-.cardDashboardCantidad:hover a{
-    font-size: 14px;
-    height: auto;
 
+
+@media (max-width: 760px) {
+   
+    .iconDash{
+        font-size: 20px;
+     
+    }     
+    .flex{
+       
+        gap: 10px;
+        padding: 6px;
+    }
 }

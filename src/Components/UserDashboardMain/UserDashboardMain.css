@@ -78,3 +78,14 @@ gap: 1rem;
     margin-bottom: 1rem;
 }
 
+@media (max-width: 1024px) {
+    .cardsMainDashborad h5{
+       
+        font-size: 12px;
+    }
+    .UserDashboardMain{
+      
+        padding: 9px;
+      
+    }
+}

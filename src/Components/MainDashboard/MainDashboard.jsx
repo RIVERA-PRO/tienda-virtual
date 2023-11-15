@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import './MainDashboard.css'
 import LoginDashboard from '../LoginDashboard/LoginDashboard'
+// ... (import statements and other code)
+
 export default function MainDashboard() {
     const [userData, setUserData] = useState(null);
 
@@ -21,15 +23,13 @@ export default function MainDashboard() {
         }
     };
 
-
     useEffect(() => {
         updateUserData();
     }, []);
 
     return (
-
         <>
-            {userData ? (
+            {userData && userData.is_admin ? (
                 <div className='dashboardGridMain'>
                     <NavbarDashboard />
 
@@ -42,28 +42,26 @@ export default function MainDashboard() {
                                     <ProdcutosCantidad />
                                     <ComprasCantidad />
                                     <ComprasCantidad />
-
                                 </div>
                                 <ProductsDashboardMain />
-
                             </div>
                             <UserDashboardMain />
                         </div>
-
                     </section>
-
-
-
-
-
                 </div>
             ) : (
                 <div className='loginDashboard'>
-                    <LoginDashboard />
-                </div>
+                    {userData ? (
 
+                        <div className='permisoSin'>
+                            <p>No tiene los permisos necesarios.</p>
+                        </div>
+                    ) : (
+
+                        <LoginDashboard />
+                    )}
+                </div>
             )}
         </>
-
-    )
+    );
 }

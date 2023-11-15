@@ -80,7 +80,16 @@
 
 
 .form-register-contain img{
-    width: 200px;
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 100%;
+    display: flex;
+    text-align: center;
+  
+    align-self: center;
+    margin-top: -6rem;
+ 
 }
 
 .google{

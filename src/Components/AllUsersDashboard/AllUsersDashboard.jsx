@@ -5,14 +5,20 @@ import axios from 'axios';
 import NavbarDashboard from '../NavbarDashboard/NavbarDashboard';
 import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDelete } from '@fortawesome/free-solid-svg-icons';
+
+import { faArrowRight, faUser } from '@fortawesome/free-solid-svg-icons';
 import PerfilDashboard from '../PerfilDashboard/PerfilDashboard'
+import * as XLSX from 'xlsx';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import { faFileExcel, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 export default function AllUsersDashboard() {
     const [usuarios, setUsuarios] = useState([]);
     const [showSpiral, setShowSpiral] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
     const [editedRol, setEditedRol] = useState(null);
     const [selectedUserId, setSelectedUserId] = useState(null);
+    const [excelData, setExcelData] = useState([]);
     useEffect(() => {
         axios
             .get('https://tiendavirtual-qleq.onrender.com/users')
@@ -21,6 +27,8 @@ export default function AllUsersDashboard() {
                 setUsuarios(response.data.users);
                 setShowSpiral(false);
                 console.log(response.data.users);
+
+                setExcelData(response.data.users);
 
             })
             .catch((error) => {
@@ -142,11 +150,34 @@ export default function AllUsersDashboard() {
         }
         return '';
     };
+    const exportToExcel = () => {
+        const ws = XLSX.utils.json_to_sheet(excelData);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Usuarios');
+        XLSX.writeFile(wb, 'usuarios.xlsx');
+    };
+    const exportToPDF = () => {
+        const doc = new jsPDF();
+        doc.text('Lista de usuarios', 14, 10);
+
+        const data = usuarios.map((item) => [item._id, item.name, item.mail, item.is_admin]);
+
+        doc.autoTable({
+            head: [['Id', 'Nombre', 'Email', 'Admin']],
+            body: data,
+        });
+
+        doc.save('usuarios.pdf');
+    };
     return (
         <div className='dashboardGrid'>
             <NavbarDashboard />
 
             <section className='sectionDashboard'>
+                <div className='title_Dash'>
+                    <FontAwesomeIcon icon={faUser} className='iconDashTitle' />
+                    <h2 >Usuarios {usuarios?.length}</h2>
+                </div>
 
                 {showSpiral &&
                     <div className="table-container">
@@ -209,7 +240,16 @@ export default function AllUsersDashboard() {
                 {!showSpiral && (
                     <div>
                         <div className='deflex'>
-                            <Anchor to={`/usuarios/crear`} id='crear'>Agregar</Anchor>
+                            <Anchor to={`/usuarios`} id='crear'>Agregar</Anchor>
+                            <div className='deFlexExport'>
+                                <button onClick={exportToExcel} className="excel-button">
+                                    <FontAwesomeIcon icon={faFileExcel} />
+                                </button>
+
+                                <button onClick={exportToPDF} className="pdf-button">
+                                    <FontAwesomeIcon icon={faFilePdf} />
+                                </button>
+                            </div>
                             <input
                                 className='filterText'
                                 type="text"

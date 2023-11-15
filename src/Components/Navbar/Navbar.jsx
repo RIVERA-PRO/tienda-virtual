@@ -4,10 +4,11 @@ import './Navbar.css'
 import { Link as Anchor, useNavigate, useLocation } from "react-router-dom";
 import InputSearch from '../InputSerach/InputSearchs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faChartPie } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../images/logo.png'
 import InfoUser from '../InfoUser/InfoUser'
 import CarritoUser from '../CarritoUser/CarritoUser'
+
 export default function Navbar() {
 
     const [isOpen, setIsOpen] = useState(false)
@@ -71,6 +72,7 @@ export default function Navbar() {
                         <Anchor to={`/products`} ><FontAwesomeIcon icon={faHome} /> Zapatillas</Anchor>
                         <Anchor to={`/products`} ><FontAwesomeIcon icon={faHome} /> Remeras</Anchor>
                         <Anchor to={`/products`} ><FontAwesomeIcon icon={faHome} /> Pantalones</Anchor>
+                        {userData?.is_admin === true && <Anchor to={`/dashboard`} >  <FontAwesomeIcon icon={faChartPie} /> Dashboard</Anchor>}
                     </div>
 
 
@@ -83,7 +85,7 @@ export default function Navbar() {
                     <Anchor to={`/products`} >Remeras</Anchor>
                     <Anchor to={`/products`} >Pantalones</Anchor>
 
-                    {userData?.is_admin === true && <Anchor to={`/dashboard`} >Dashboard</Anchor>}
+                    {userData?.is_admin === true && <Anchor to={`/dashboard`} >  Dashboard</Anchor>}
                 </div>
 
                 <div className='deFlexnav'>

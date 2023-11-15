@@ -3,7 +3,7 @@ import './NavbarMobile.css';
 import { Link as Anchor, useNavigate, useLocation } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faShoppingCart, faSearch, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faChartPie, faShoppingCart, faSearch, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
 import InfoUser from '../InfoUser/InfoUser';
 import InputSearchMobile from '../InputSearchMobile/InputSearchMobile';
 import CarritoUser from '../CarritoUser/CarritoUser';
@@ -11,7 +11,19 @@ export default function NavbarMobile() {
     const location = useLocation();
     const [scrolled, setScrolled] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
+    const [userData, setUserData] = useState(null);
 
+    const updateUserData = () => {
+        const user = localStorage.getItem('user');
+        if (user) {
+            setUserData(JSON.parse(user));
+        }
+    };
+
+
+    useEffect(() => {
+        updateUserData();
+    }, []);
     const openModal = () => {
         setModalOpen(!modalOpen);
     };
@@ -56,19 +68,23 @@ export default function NavbarMobile() {
             <InputSearchMobile />
 
             {modalOpen && (
-                <div className="modalNavMobile">
-                    <Anchor to={`/`}>
-                        <FontAwesomeIcon icon={faHome} /> Inicio
-                    </Anchor>
-                    <Anchor to={`/products`}>
-                        <FontAwesomeIcon icon={faSearch} /> Zapatillas
-                    </Anchor>
-                    <Anchor to={`/products`}>
-                        <FontAwesomeIcon icon={faSearch} /> Remeras
-                    </Anchor>
-                    <Anchor to={`/products`}>
-                        <FontAwesomeIcon icon={faSearch} /> Pantalones
-                    </Anchor>
+                <div className="modalNavMobileContain">
+                    <div className="modalNavMobile">
+                        <Anchor to={`/`}>
+                            <FontAwesomeIcon icon={faHome} /> Inicio
+                        </Anchor>
+                        <Anchor to={`/products`}>
+                            <FontAwesomeIcon icon={faSearch} /> Zapatillas
+                        </Anchor>
+                        <Anchor to={`/products`}>
+                            <FontAwesomeIcon icon={faSearch} /> Remeras
+                        </Anchor>
+                        <Anchor to={`/products`}>
+                            <FontAwesomeIcon icon={faSearch} /> Pantalones
+                        </Anchor>
+
+                        {userData?.is_admin === true && <Anchor to={`/dashboard`} >  <FontAwesomeIcon icon={faChartPie} /> Dashboard</Anchor>}
+                    </div>
                 </div>
             )}
         </section>

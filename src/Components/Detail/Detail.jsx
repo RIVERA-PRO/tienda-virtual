@@ -142,6 +142,23 @@ export default function Detail() {
             .post("https://tiendavirtual-qleq.onrender.com/buy", { products: productsDetails.price }, { headers })
             .then(res => window.location.href = res.data.response.body.init_point);
     };
+    const handleWhatsappMessage = () => {
+        const phoneNumber = '3875683101'; // Reemplaza con el número de teléfono al que deseas enviar el mensaje
+
+        const message = `¡Hola! 🌟 Estoy interesado en el producto:
+
+${producto.categoria} - ${producto.title} - $${producto.price}.
+        
+Producto:(https://tienda-virtual-jet.vercel.app/producto/${producto._id})
+        
+¿Podrías proporcionarme más información? 🤔`;
+
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+
+    };
+
+
     return (
         <div className="detail-contain">
             {loading ? (
@@ -197,6 +214,10 @@ export default function Detail() {
                                 </button>
 
                                 <button className="comprar" onClick={handleBuy}>comprar</button>
+                                <button className="consultar" onClick={handleWhatsappMessage}>
+                                    Consultar al WhatsApp
+                                </button>
+
                             </div>
                         </div>
 

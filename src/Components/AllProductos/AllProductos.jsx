@@ -32,7 +32,7 @@ export default function AllProductos() {
     }, []);
 
     const [priceRange, setPriceRange] = useState({
-        min: 1000,
+        min: 10,
         max: 200000,
     });
 
@@ -109,8 +109,10 @@ export default function AllProductos() {
     return (
         <div>
 
-            <div className='fondo'>
-                <img src={img} alt="" />
+            <div className='fondoPage'>
+                <Anchor to={`/`}>Inicio</Anchor>
+                |
+                <Anchor to={`/products`}>Productos</Anchor>
             </div>
             {showSpiral &&
                 <Swiper
@@ -175,7 +177,7 @@ export default function AllProductos() {
                             <h3>Filtrar por precio:</h3>
                             <input
                                 type="range"
-                                min="1000"
+                                min="10"
                                 max="200000"
                                 value={priceRange.min}
                                 onChange={(e) =>
@@ -184,7 +186,7 @@ export default function AllProductos() {
                             />
                             <input
                                 type="range"
-                                min="1000"
+                                min="10"
                                 max="200000"
                                 value={priceRange.max}
                                 onChange={(e) =>

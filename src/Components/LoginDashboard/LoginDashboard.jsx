@@ -97,6 +97,8 @@ export default function LoginDashboard() {
     return (
         <div className='form-register-contain'>
             <form action='' className='form-register' onSubmit={handleSubmit} ref={dataForm}>
+
+                <img src="https://i.postimg.cc/VNyHKfFn/gratis-png-perfil-de-usuario-iconos-de-la-computadora-interfaz-de-usuario-mistica.png" alt="" />
                 <h4>Ingresar</h4>
                 <label htmlFor=''>Email</label>
                 <input type='email' placeholder='Email' name='mail' id='mail' />

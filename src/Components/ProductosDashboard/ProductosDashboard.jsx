@@ -7,7 +7,13 @@ import NavbarDashboard from '../NavbarDashboard/NavbarDashboard'
 import Swal from 'sweetalert2';
 import './ProductosDashboard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDelete } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import * as XLSX from 'xlsx';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import { faFileExcel, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+
+
 export default function ProductosDashboard() {
     const [productos, setProductos] = useState([]);
     const [showSpiral, setShowSpiral] = useState(true);
@@ -21,6 +27,8 @@ export default function ProductosDashboard() {
     const [editedCover_photo3, setEditedCover_photo3] = useState(null);
     const [editedCover_photo4, setEditedCover_photo4] = useState(null);
     const [selectedUserId, setSelectedUserId] = useState(null);
+    const [excelData, setExcelData] = useState([]);
+
     useEffect(() => {
         axios
             .get('https://tiendavirtual-qleq.onrender.com/publicacion')
@@ -28,7 +36,7 @@ export default function ProductosDashboard() {
 
                 setProductos(response.data.publicaciones);
                 setShowSpiral(false);
-
+                setExcelData(response.data.publicaciones);
 
             })
             .catch((error) => {
@@ -166,11 +174,35 @@ export default function ProductosDashboard() {
             }
         }
     };
+    const exportToExcel = () => {
+        const ws = XLSX.utils.json_to_sheet(excelData);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Productos');
+        XLSX.writeFile(wb, 'productos.xlsx');
+    };
+    const exportToPDF = () => {
+        const doc = new jsPDF();
+        doc.text('Lista de Productos', 14, 10);
+
+        const data = productos.map((item) => [item._id, item.title, item.price, item.description, item.categoria]);
+
+        doc.autoTable({
+            head: [['Id', 'Titulo', 'Precio', 'Descripción', 'Categoría']],
+            body: data,
+        });
+
+        doc.save('productos.pdf');
+    };
+
 
     return (
         <div className='dashboardGrid'>
             <NavbarDashboard />
             <section className='sectionDashboard'>
+                <div className='title_Dash'>
+                    <FontAwesomeIcon icon={faShoppingBag} className='iconDashTitle' />
+                    <h2 >Productos {productos?.length}</h2>
+                </div>
                 {showSpiral &&
                     <div className="table-container">
 
@@ -253,6 +285,15 @@ export default function ProductosDashboard() {
                     <div>
                         <div className='deflex'>
                             <Anchor to={`/productos/crear`} id='crear'>Agregar</Anchor>
+                            <div className='deFlexExport'>
+                                <button onClick={exportToExcel} className="excel-button">
+                                    <FontAwesomeIcon icon={faFileExcel} />
+                                </button>
+
+                                <button onClick={exportToPDF} className="pdf-button">
+                                    <FontAwesomeIcon icon={faFilePdf} />
+                                </button>
+                            </div>
                             <input
                                 className='filterText'
                                 type="text"

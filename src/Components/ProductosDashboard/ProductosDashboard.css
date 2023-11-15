@@ -107,6 +107,28 @@
     gap: 2rem;
 }
 
+.deFlexExport{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.pdf-button{
+   
+    border: none;
+   
+    color: red;
+    font-size: 19px;
+    cursor: pointer;
+}
+.excel-button{
+   
+
+    font-size: 19px;
+
+    border: none;
+    color:  green;
+    cursor: pointer;
+}
 /* Estilos para pantallas más pequeñas (por ejemplo, 768px o menos) */
 @media (max-width: 768px) {
     .table {
@@ -135,5 +157,9 @@
         border-radius: 100%;
         
     }
-    
+    .deFlexExport{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
 }

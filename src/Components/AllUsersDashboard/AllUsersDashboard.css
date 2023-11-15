@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px 5%;
+    z-index: 99;
 }
 .submodal-edit{
     background-color: var(--blanco);
@@ -20,23 +21,27 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
 }
 
 .deFlexBtns{
     display: flex;
     gap: 1rem;
     justify-content: space-between;
+   
 }
 .deFlexBtns button{
     border: none;
     padding: 10px 20px;
     color: var(--blanco);
     border-radius: 6px;
-    margin-top: 4rem;
+   
 }
 
 .submodal-edit select{
+       
         width: 50vh;
+       
         border: 1px solid var(--input);
         border-radius: 4px;
         padding: 10px 10px;
@@ -63,12 +68,33 @@
     width: 100%;
     gap: 10px;
 }
+.title_Dash{
+   
+    margin-bottom: 1rem;
+    text-align: center;
+  
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -3.4rem;
+}
+.title_Dash h2{
+    color: var(--text-color2);
+}
+.iconDashTitle{
+    font-size: 30px;
+    background-color: var(--color1);
+    color: var(--blanco);
+    padding: 14px;
+    border-radius: 100%;
+   
+}
 @media (max-width: 700px) {
     .submodal-edit {
         flex-wrap: nowrap;
         flex-direction: column;
         width: 100%;
         padding: 10px;
+        align-items:normal;
     }
     .submodal-edit   select{
         width: 100%;
@@ -87,5 +113,11 @@
     .modal-edit{
         max-height: auto!important;
         padding: 10px;
+    }
+    .iconDashTitle{
+        font-size: 20px;
+    }
+    .title_Dash h2{
+        font-size: 20px;
     }
 }

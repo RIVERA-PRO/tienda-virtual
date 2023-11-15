@@ -1,21 +1,12 @@
 .perfilUser{
    
     width: 100%;
-    padding: 10px 2%;
+   
    
 }
 
-.fondo{
-    display:flex;
-    height: 50vh;
- 
-    width: 100%;
-}
-.fondo img{
-    width: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
+
+
 .infoUserCard{
     display: flex;
     justify-content: center;
@@ -32,6 +23,7 @@
     height: 20vh;
     border-radius: 100%;
    object-fit: cover;
+   border: 4px solid var(--blanco);
 }
 
 .textLoading{
@@ -65,13 +57,16 @@
 
   @media (max-width: 700px){
     .infoUserCard img{
-        width: 10vh;
-        height: 10vh;
+        width: 13vh;
+        height: 13vh;
         border-radius: 100%;
       
        
     }
-
+.imgloading{
+  width: 13vh;
+  height: 13vh;
+}
     .infoUserCard{
         display: flex;
         justify-content: center;
@@ -82,8 +77,5 @@
     }
 
    
-    .fondo{
-      height: 25vh;
-       
-    }
+  
   }

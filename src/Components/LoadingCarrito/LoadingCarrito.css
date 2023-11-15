@@ -1,0 +1,31 @@
+.cardCarrito_loading{
+    width: 90vh;
+    height: 20vh;
+    background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
+    background-size: 400% 400%;
+    animation: gradientMove 1s linear infinite;
+    -webkit-animation: gradientMove 1s linear infinite;
+    border-radius: 10px;
+}
+.card_pago_loading{
+    width: 50vh;
+    height: 40vh;
+    background: linear-gradient(90deg, #fff, #d2d1d1, #e8e6e6);
+    background-size: 400% 400%;
+    animation: gradientMove 1s linear infinite;
+    -webkit-animation: gradientMove 1s linear infinite;
+    border-radius: 10px;
+}
+
+@media (max-width: 1024px){
+    .cardCarrito_loading{
+        width: 100%;
+        height: 16vh;
+      
+    }
+    .card_pago_loading{
+        width: 100;
+        height: 14rem;
+       
+    }
+}

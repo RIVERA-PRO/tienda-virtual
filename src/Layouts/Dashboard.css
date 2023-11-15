@@ -1,21 +1,23 @@
 .dashboardGrid{
     display: grid;
     grid-template-areas:  "navbarDashboard sectionDashboard "!important;
-   background-color: var(--gris);
+   background-color: var(--gris2);
    align-items: start; 
    align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     width: 100%;
+    
 }
 
 .sectionDashboard{
     background-color: var(--blanco);
-    min-width: 99%;
-    max-width:  99%;
+    min-width: 98%;
+    max-width: 98%;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.221);
-    padding: 40px 2%;
+    padding: 20px 2%;
     border-radius: 7px;
-    height: 70vh;
+    height: 76vh;
+
   
 }
 
@@ -55,6 +57,7 @@
     .dashboardGrid{
         display: flex;
         flex-direction: column;
+        gap: 3rem;
     }
     .sectionDashboard{
       

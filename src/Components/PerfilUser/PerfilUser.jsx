@@ -29,8 +29,8 @@ export default function PerfilUser() {
 
     return (
         <div className='perfilUser'>
-            <div className='fondo'>
-                <img src={img} alt="" />
+            <div className='fondoPage'>
+
             </div>
             {userData ? (
                 <div className='infoUserCard'>

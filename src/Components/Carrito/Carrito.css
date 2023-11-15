@@ -1,7 +1,28 @@
 .carrito{
-    padding: 100px 10%;
-    background-color: var(--gris);
+    padding: 50px 10%;
+  
    
+}
+.fondoPage{
+   
+    height: 30vh;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    color: var(--blanco);
+    padding-top: 3rem;
+    background-image: url(../../images/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    margin: 0px 2%;
+  
+  
+}
+.fondoPage a{
+    color: var(--blanco);
+    font-size: 17px;
 }
 .carritoGrid{
     display: grid;
@@ -37,7 +58,7 @@
 .card_pago{
     width: 50vh;
    
-    height: 12.5rem;
+     height: 16rem; 
   
     overflow: hidden;
     border-radius: 10px;
@@ -102,11 +123,14 @@
     border-bottom: 0.1px solid rgba(0, 0, 0, 0.21);
     padding-bottom: 15px;
 }
+.nohay{
+    text-align: center;
+}
 @media (max-width: 1024px){
     .card_pago{
         width: 100%;
         padding: 10px;
-        height: 11rem;
+        height: 15rem;
     }
     .cardCarrito{
         width: 100%;
@@ -158,9 +182,16 @@
     flex-direction: column;
  }
  .carrito{
-    padding: 100px 3%;
+    padding:20px 3% 70px;
     background-color: var(--gris);
    
 }
-
+.cardsCarrito{
+    
+    gap: 1rem;
+    
+}
+.fondoPage{
+    height: 25vh;
+}
 }

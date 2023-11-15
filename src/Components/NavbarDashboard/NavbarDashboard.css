@@ -27,6 +27,11 @@
     width: 100%;
     color: var(--color1);
 }
+.navbarDashboard:hover{
+   
+    width: 20rem;
+   
+}
 
 .activeLink{
     background-color:var(--gris2);

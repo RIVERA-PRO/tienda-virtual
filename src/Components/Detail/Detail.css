@@ -84,6 +84,16 @@
     padding: 14px 20px;
     cursor: pointer;
 }
+.consultar{
+    background-color: rgb(28, 177, 28);
+    color: var(--blanco);
+    font-size: 15px;
+    border-radius: 7px;
+    border: none;
+    padding: 14px 20px;
+    cursor: pointer;
+}
+
 #swiperDetail{
     height: 40vh;
    

@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { Link as Anchor } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import LoadingCarrito from '../LoadingCarrito/LoadingCarrito';
 export default function Carrito() {
     const [products, setProducts] = useState([]);
     const [showSpiral, setShowSpiral] = useState(true);
@@ -83,11 +84,18 @@ export default function Carrito() {
 
     if (products.filter(item => item.user_id._id === userData?.user_id).length === 0) {
         return (
-            <div className='carrito'>
-                {showSpiral && <div>cargando</div>}
-                {!showSpiral && (
-                    <div >No hay productos</div>
-                )}
+            <div>
+                <div className='fondoPage'>
+                    <Anchor to={`/`}>Inicio</Anchor>
+                    |
+                    <Anchor to={`/carrito`}>Carrito</Anchor>
+                </div>
+                <div className='carrito'>
+                    {showSpiral && <LoadingCarrito />}
+                    {!showSpiral && (
+                        <p className='nohay'>No hay productos</p>
+                    )}
+                </div>
             </div>
         )
     }
@@ -124,62 +132,99 @@ export default function Carrito() {
     };
 
 
+    const handleWhatsappMessage = () => {
+        const phoneNumber = '3875683101'; // Reemplaza con el número de teléfono al que deseas enviar el mensaje
+
+        // Crea una lista de detalles completos de los productos en el carrito
+        const cartDetails = products
+            .filter((item) => item.user_id._id === userData?.user_id)
+            .map((item) => (
+                `
+*${item.title}* - ${item.categoria}
+Precio: $${item.price}
+Producto:(${`https://tienda-virtual-jet.vercel.app/producto/${item.publicacion_id}`})
+---`
+            ));
+        const message = `¡Hola! 🌟 Estoy interesado en los siguientes productos en mi carrito:
+    
+    ${cartDetails.join('')}
+Total:$ ${totalPrice}
+¿Podrías proporcionarme más información o ayudarme con la compra? 🛍️`;
+
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappUrl, '_blank');
+    };
 
     return (
-        <div className='carrito'>
-            {showSpiral && <div>cargando</div>}
-            {!showSpiral && (
-                <div className='carritoGrid'>
-                    <div className='cardsCarrito'>
-                        {products
-                            .filter((item) => item.user_id._id === userData?.user_id)
-                            .map((item) => (
+        <div>
+            <div className='fondoPage'>
+                <Anchor to={`/`}>Inicio</Anchor>
+                |
+                <Anchor to={`/carrito`}>Carrito</Anchor>
+            </div>
+            <div className='carrito'>
 
 
-                                <div key={item._id} className='cardCarrito'>
-                                    <img src={item.cover_photo} alt="" />
-                                    <div className='cardCarritoText'>
-                                        <h3>{item.title}</h3>
-                                        <div className='deFlexver'>
-                                            <p>{item.categoria}</p>
-                                            <h4>$ {item.price}</h4>
+
+                {showSpiral && <div>cargando</div>}
+                {!showSpiral && (
+                    <div className='carritoGrid'>
+                        <div className='cardsCarrito'>
+                            {products
+                                .filter((item) => item.user_id._id === userData?.user_id)
+                                .map((item) => (
+
+
+                                    <div key={item._id} className='cardCarrito'>
+                                        <img src={item.cover_photo} alt="" />
+                                        <div className='cardCarritoText'>
+                                            <h3>{item.title}</h3>
+                                            <div className='deFlexver'>
+                                                <p>{item.categoria}</p>
+                                                <h4>$ {item.price}</h4>
+                                            </div>
+
+
+                                            <div className='deFlexver'>
+                                                <Anchor to={`/producto/${item.publicacion_id}`}>Ver producto</Anchor>
+                                                <button onClick={() => handleDeleteProduct(item._id)}>
+                                                    <FontAwesomeIcon icon={faTrash} />
+                                                </button>
+                                            </div>
                                         </div>
 
-
-                                        <div className='deFlexver'>
-                                            <Anchor to={`/producto/${item.publicacion_id}`}>Ver producto</Anchor>
-                                            <button onClick={() => handleDeleteProduct(item._id)}>
-                                                <FontAwesomeIcon icon={faTrash} />
-                                            </button>
-                                        </div>
                                     </div>
 
-                                </div>
 
 
 
+                                ))
 
-                            ))
-
-                        }
-                    </div>
-                    {products
-                        .filter((item) => item.user_id._id === userData?.user_id)
-
-                        && <div className='card_pago'>
-                            <h2>Resumen de Compra</h2>
-                            <div className='deFlexTotal'>
-                                <h3>Total: </h3>
-                                <h3>$ {totalPrice}</h3>
-                            </div>
-                            <button className="agregar" onClick={handleBuy}>comprar</button>
+                            }
                         </div>
-                    }
+                        {products
+                            .filter((item) => item.user_id._id === userData?.user_id)
 
-                </div>
-            )}
+                            && <div className='card_pago'>
+                                <h2>Resumen de Compra</h2>
+                                <div className='deFlexTotal'>
+                                    <h3>Total: </h3>
+                                    <h3>$ {totalPrice}</h3>
+                                </div>
+                                <button className="agregar" onClick={handleBuy}>comprar</button>
+                                <button className="consultar" onClick={handleWhatsappMessage}>
+                                    Consultar al WhatsApp
+                                </button>
+
+                            </div>
+                        }
+
+                    </div>
+                )}
 
 
+            </div>
         </div>
     );
 }

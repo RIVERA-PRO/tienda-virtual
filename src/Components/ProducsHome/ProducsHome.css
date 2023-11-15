@@ -142,3 +142,45 @@
         width: 100%;
     }
 }
+
+@media screen and (max-width: 967px) and (orientation: landscape){
+    .cardScroll2{
+        width: 100%;
+        height: 26vh;
+    }
+    .cardloadin2{
+        width: 65vh;
+        height: 26vh;
+      
+    }
+    .cardScroll2 p{
+        color: var(--text-color2);
+        font-size: 12px;
+        white-space: nowrap;
+        
+        text-overflow: ellipsis;
+        max-width: 3ch;
+      
+    }
+    .cardScroll2 h4{
+        color: var(--color1);
+        font-size: 13px;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+     
+}
+.cardScroll2 h3{
+    color: var(--text-color);
+    font-size: 15px;
+    white-space: nowrap;
+    
+    text-overflow: ellipsis;
+    max-width: 15ch;
+    font-weight: 500;
+}
+#swiperCardScrollImg2{
+    width: 23vh;
+    height: 7rem;
+  }
+}

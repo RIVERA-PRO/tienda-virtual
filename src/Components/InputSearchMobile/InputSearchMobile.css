@@ -3,25 +3,36 @@
        
         color: #aeadad
 }
-
-.modalSearchMobile {
-    background-color: var(--blanco);
+.modalSearchMobileContain{
+  background-color: rgba(0, 0, 0, 0.403);
+  display: flex;
+   
+  position: absolute;
   
-    display: flex;
-   
-    position: absolute;
-    
-    height: 80vh;
-   
-    right: 0px;
-    left: 0px;
-    bottom: 2rem;
-    padding: 10px 5%;
-    flex-direction: column;
+  height: 100vh;
  
-   border-radius: 10px 10px 0px 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0;
+  padding: 10px 5%;
+  flex-direction: column;
 
-  }
+ 
+}
+.modalSearchMobile {
+  background-color: var(--blanco);
+  display: flex;
+  position: fixed;
+  bottom: -1.4rem;
+  height: 80vh;
+  right: 0;
+  left: 0;
+  padding: 10px 5%;
+ 
+  flex-direction: column;
+  border-radius: 10px 10px 0 0;
+}
+
   .inputSearschMobile{
     background-color: var(  --gris)!important;
    
@@ -38,7 +49,7 @@
 
   .modalMobile {
     position: absolute;
-    top: calc(15% + 1px);
+    top: calc(5rem + 1px);
     left: 0;
     width: 100%;
     z-index: 9999;
@@ -55,4 +66,24 @@
     gap: 10px;
     margin-top: 2rem ;
 }
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .modalSearchMobile {
+  
+   
+    height: 90vh;
  
+  }
+  .modalSearchMobileContain{
+  
+    
+    height: 100vh;
+  
+  }
+  .modalMobile {
+    position: absolute;
+    top: calc(6rem + 1px);
+   
+    max-height: 59%;
+  
+}
+}

@@ -135,3 +135,17 @@
        
     }
 }
+
+@media screen and (max-width: 967px) and (orientation: landscape){
+    .productosFiltrados{
+      
+       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+   
+       
+    }
+    .productosFiltrados .cardScroll{
+      
+        margin: 0;
+        max-width: 50vh;
+    }
+}

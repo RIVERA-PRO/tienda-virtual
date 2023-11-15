@@ -27,7 +27,7 @@
   @media (max-width: 1000px){
       .heroContain {
           padding: 0px 3%;
-          padding-top: 9vh;
+          padding-top: 4rem;
          
       }
   
@@ -38,10 +38,23 @@
           border-radius: 10px;
       }
   }
-  @media (max-width: 1000px){
+  @media (max-width: 700px){
       #swiper_container_img{
           width: 100%;
           height: 20vh;
         
       }
+  }
+
+  @media screen and (max-width: 967px) and (orientation: landscape){
+    .heroContain {
+        padding: 0px 3%;
+        padding-top: 4.5rem;
+       
+    }
+    #swiper_container_img{
+        width: 100%;
+        height: 40vh;
+      
+    }
   }

@@ -131,3 +131,27 @@
     font-size: 17px!important;
 }
 }
+@media screen and (max-width: 967px) and (orientation: landscape){
+    .cardScroll h3{
+        color: var(--text-color);
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 15ch;
+        font-weight: 500;
+    }
+    .cardScroll p{
+        color: var(--text-color2);
+        font-size: 13px;
+        display: none;
+    }
+    .cardScroll h4{
+      
+        font-size: 16px;
+    }
+    .cart{
+  
+        font-size: 17px!important;
+    }
+}

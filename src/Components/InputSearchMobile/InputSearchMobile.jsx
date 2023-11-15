@@ -63,31 +63,33 @@ export default function InputSearchMobile() {
 
 
             {modalOpen && (
-                <div className="modalSearchMobile">
-                    <span className="close" onClick={closeModal}>&times;</span>
-                    <div className="inputSearschMobile" >
-                        <FontAwesomeIcon icon={faSearch} className="search-icon" />
-                        <input
-                            type="text"
-                            placeholder="Buscar..."
-                            value={searchTerm}
-                            onChange={handleSearch}
-                            className="input"
-                        />
-                        {showResults && (
-                            <div className="modalMobile">
-                                {filteredProductos.map((producto) => (
-                                    <div key={producto._id}>
+                <div className="modalSearchMobileContain">
+                    <div className="modalSearchMobile">
+                        <span className="close" onClick={closeModal}>&times;</span>
+                        <div className="inputSearschMobile" >
+                            <FontAwesomeIcon icon={faSearch} className="search-icon" />
+                            <input
+                                type="text"
+                                placeholder="Buscar..."
+                                value={searchTerm}
+                                onChange={handleSearch}
+                                className="input"
+                            />
+                            {showResults && (
+                                <div className="modalMobile">
+                                    {filteredProductos.map((producto) => (
+                                        <div key={producto._id}>
 
-                                        <Anchor to={`/producto/${producto._id}`} onClick={closeModal}>
-                                            <FontAwesomeIcon icon={faSignOutAlt} />
-                                            <p>{producto.title} - {producto.categoria}</p>
-                                        </Anchor>
-                                    </div>
-                                ))}
-                                {noResults && <p>No se encontraron resultados.</p>}
-                            </div>
-                        )}
+                                            <Anchor to={`/producto/${producto._id}`} onClick={closeModal}>
+                                                <FontAwesomeIcon icon={faSignOutAlt} />
+                                                <p>{producto.title} - {producto.categoria}</p>
+                                            </Anchor>
+                                        </div>
+                                    ))}
+                                    {noResults && <p>No se encontraron resultados.</p>}
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             )}

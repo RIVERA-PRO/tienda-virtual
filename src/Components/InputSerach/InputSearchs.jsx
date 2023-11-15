@@ -57,10 +57,10 @@ export default function InputSearchs() {
     return (
         <div className="fondo-input">
             <div className="search-container">
-                <div className="inputSearch" onClick={openModal}>
+                <div className="inputSearchAbrir" onClick={openModal}>
                     <FontAwesomeIcon icon={faSearch} className="search-icon" />
                     <div className="input">
-                        Buscar productos... {/* Cambio de "ejercicio" a "propiedad" */}
+                        Buscar producto... {/* Cambio de "ejercicio" a "propiedad" */}
                     </div>
                 </div>
             </div>

@@ -21,6 +21,16 @@
    
 }
 
+.loginDashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 35%;
+    background-image: url(../../images/bglogin.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
 
 @media (max-width: 1024px) {
     .cantidades{
@@ -37,7 +47,16 @@
        align-self: center;
        align-content: center;
        
-   
+      gap: 1rem;
        
+    }
+    
+}
+@media (max-width: 724px){
+    .loginDashboard{
+     
+       
+        padding: 10px 5%;
+      
     }
 }

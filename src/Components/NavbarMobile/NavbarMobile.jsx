@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faShoppingCart, faSearch, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
 import InfoUser from '../InfoUser/InfoUser';
 import InputSearchMobile from '../InputSearchMobile/InputSearchMobile';
+import CarritoUser from '../CarritoUser/CarritoUser';
 export default function NavbarMobile() {
     const location = useLocation();
     const [scrolled, setScrolled] = useState(false);
@@ -49,7 +50,7 @@ export default function NavbarMobile() {
             </button>
 
             <Anchor to={`/carrito`} className={location.pathname === '/carrito' ? 'active' : ''} onClick={closeModal}>
-                <FontAwesomeIcon icon={faShoppingCart} />
+                <CarritoUser />
             </Anchor>
 
             <InputSearchMobile />

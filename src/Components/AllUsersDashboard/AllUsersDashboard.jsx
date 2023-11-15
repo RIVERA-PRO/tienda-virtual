@@ -6,7 +6,7 @@ import NavbarDashboard from '../NavbarDashboard/NavbarDashboard';
 import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDelete } from '@fortawesome/free-solid-svg-icons';
-
+import PerfilDashboard from '../PerfilDashboard/PerfilDashboard'
 export default function AllUsersDashboard() {
     const [usuarios, setUsuarios] = useState([]);
     const [showSpiral, setShowSpiral] = useState(true);
@@ -145,7 +145,9 @@ export default function AllUsersDashboard() {
     return (
         <div className='dashboardGrid'>
             <NavbarDashboard />
+
             <section className='sectionDashboard'>
+
                 {showSpiral &&
                     <div className="table-container">
                         <table className="table">
@@ -161,7 +163,44 @@ export default function AllUsersDashboard() {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td className="noResult" colSpan="9">Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                </tr>
+                                <tr>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                </tr>
+                                <tr>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                </tr>
+                                <tr>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                </tr>
+                                <tr>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
                                 </tr>
                             </tbody>
                         </table>

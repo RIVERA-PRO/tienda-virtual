@@ -50,6 +50,20 @@
     font-size: 15px;
 
   }
+  .inputSearchAbrir{
+    background-color: var(  --gris)!important;
+   
+    border-radius: 20px;
+    border: 0.3px solid #00000037;
+    padding: 4px 7px;
+    width: 38vh;
+    color: var(--text-color2);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 15px;
+  }
+
   .input{
     width: 90%;
     height: 100%;
@@ -135,7 +149,7 @@
 
 
 
- @media (max-width: 1024px){
+ @media (max-width: 1110px){
   .modal p {
     font-size: 13px;
   }
@@ -145,8 +159,12 @@
     padding: 0px;
 
   }
+  .inputSearchAbrir{
+    display: none;
+  }
+
     .inputSearch{
-       
+      display: none;
        
      
         width: 100%;
@@ -162,7 +180,7 @@
 @media (max-width: 510px){
   .inputSearch{
       width: 100%!important;
-      display: none;
+     
     }
     .modalSearch-content{
       background-color: rgb(255, 255, 255);

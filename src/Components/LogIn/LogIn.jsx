@@ -40,8 +40,8 @@ export default function SignIn() {
           mail: res.data.user.mail,
           photo: res.data.user.photo,
           user_id: res.data.user._id,
-          profile: res.data.user.profile,
-          banner: res.data.user.banner
+
+          is_admin: res.data.user.is_admin
         })
       );
       setReload(true); // Actualizar el estado para recargar el componente

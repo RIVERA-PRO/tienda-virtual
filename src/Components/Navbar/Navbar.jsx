@@ -7,11 +7,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../images/logo.png'
 import InfoUser from '../InfoUser/InfoUser'
+import CarritoUser from '../CarritoUser/CarritoUser'
 export default function Navbar() {
 
     const [isOpen, setIsOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false);
     const [userData, setUserData] = useState(null);
+
+    const updateUserData = () => {
+        const user = localStorage.getItem('user');
+        if (user) {
+            setUserData(JSON.parse(user));
+        }
+    };
+
+
+    useEffect(() => {
+        updateUserData();
+    }, []);
+
 
 
 
@@ -52,6 +66,7 @@ export default function Navbar() {
                     </div>
 
                     <div className='enlaces'>
+
                         <Anchor to={`/`} ><FontAwesomeIcon icon={faHome} /> Inico</Anchor>
                         <Anchor to={`/products`} ><FontAwesomeIcon icon={faHome} /> Zapatillas</Anchor>
                         <Anchor to={`/products`} ><FontAwesomeIcon icon={faHome} /> Remeras</Anchor>
@@ -67,6 +82,8 @@ export default function Navbar() {
                     <Anchor to={`/products`} >Zapatillas</Anchor>
                     <Anchor to={`/products`} >Remeras</Anchor>
                     <Anchor to={`/products`} >Pantalones</Anchor>
+
+                    {userData?.is_admin === true && <Anchor to={`/dashboard`} >Dashboard</Anchor>}
                 </div>
 
                 <div className='deFlexnav'>
@@ -77,12 +94,13 @@ export default function Navbar() {
                         <span></span>
                         <span></span>
                     </div>
-                    <Anchor className='btn-sesion'>
+                    <div className='btn-sesion'>
                         <InfoUser />
-                    </Anchor>
-                    <Anchor to={`/carrito`} className='btn-sesion'>
-                        <FontAwesomeIcon icon={faShoppingCart} />
-                    </Anchor>
+                    </div>
+                    <div className='btn-sesion'>
+                        <CarritoUser />
+                    </div>
+
 
 
                 </div>

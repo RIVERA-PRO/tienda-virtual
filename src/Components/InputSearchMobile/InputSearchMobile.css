@@ -15,12 +15,12 @@
    
     right: 0px;
     left: 0px;
-    bottom: 4.5vh;
+    bottom: 2rem;
     padding: 10px 5%;
     flex-direction: column;
  
    border-radius: 10px 10px 0px 0px;
-   box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.53);
+
   }
   .inputSearschMobile{
     background-color: var(  --gris)!important;

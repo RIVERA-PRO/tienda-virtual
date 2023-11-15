@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { Link as Anchor } from "react-router-dom";
-import { faArrowRight, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function UsersCantidad() {
     const [loading, setLoading] = useState(true);
@@ -43,7 +43,7 @@ export default function UsersCantidad() {
             {loading ? (
                 <div className='cardDashboardCantidad'>
                     <div className='flex'>
-                        <FontAwesomeIcon icon={faShoppingBag} className='iconDash' />
+                        <FontAwesomeIcon icon={faShoppingCart} className='iconDash' />
                         <div>
                             <h4>Compras</h4>
                             <h5> Cargando</h5>
@@ -62,7 +62,7 @@ export default function UsersCantidad() {
             ) : (
                 <div className='cardDashboardCantidad'>
                     <div className='flex'>
-                        <FontAwesomeIcon icon={faShoppingBag} className='iconDash' />
+                        <FontAwesomeIcon icon={faShoppingCart} className='iconDash' />
                         <div>
                             <h4>Compras</h4>
                             <h3 className='title-cantidad'> 0</h3>

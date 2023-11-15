@@ -191,7 +191,59 @@ export default function ProductosDashboard() {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td className="noResult" colSpan="9">Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                </tr>
+                                <tr>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                </tr>
+                                <tr>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                </tr>
+                                <tr>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                </tr>
+                                <tr>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
+                                    <td className="noResult" >Cargando</td>
                                 </tr>
                             </tbody>
                         </table>

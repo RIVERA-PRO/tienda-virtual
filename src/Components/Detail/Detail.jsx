@@ -89,6 +89,7 @@ export default function Detail() {
 
             if (response.ok) {
                 // Producto agregado con éxito
+
                 Swal.fire({
                     icon: 'success',
                     title: 'Producto agregado al carrito',

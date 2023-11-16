@@ -193,8 +193,8 @@ export default function ProductosHome() {
                                         </Swiper>
                                     </Anchor>
                                     <div className='cardText'>
-                                        <h3>{item.title.slice(0, 22)}..</h3>
-                                        <p>{item.description.slice(0, 50)}...</p>
+                                        <h3>{item.title.slice(0, 22)}</h3>
+                                        <p>{item.description.slice(0, 50)}</p>
                                         <div className='deFlexbtns'>
                                             <h4>$ {item.price}</h4>
                                             <button className="cart" onClick={() => handleAddToCart(item)}>

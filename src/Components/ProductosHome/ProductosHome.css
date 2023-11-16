@@ -23,13 +23,23 @@
 }
 
 
-.cardcardScrollText h3{
+.cardText h3{
     color: var(--text-color);
-    font-size: 16px;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20ch;
+    font-weight: 500;
 }
 .cardScroll p{
     color: var(--text-color2);
     font-size: 14px;
+       white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 40ch;
+       
    
 }
 .cardScroll h4{
@@ -48,7 +58,7 @@
     flex-direction: column;
     justify-content: space-around;
     gap: 10px;
-    padding: 10px;
+    padding: 15px 10px;
 }
 .deFlexbtns{
     display: flex;

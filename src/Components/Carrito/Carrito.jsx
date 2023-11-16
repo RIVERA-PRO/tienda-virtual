@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Carrito.css';
+
 import Swal from 'sweetalert2';
 import { Link as Anchor } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import LoadingCarrito from '../LoadingCarrito/LoadingCarrito';
+import wpp from '../../images/wpp.png'
 export default function Carrito() {
     const [products, setProducts] = useState([]);
     const [showSpiral, setShowSpiral] = useState(true);
@@ -212,10 +214,12 @@ Total:$ ${totalPrice}
                                     <h3>Total: </h3>
                                     <h3>$ {totalPrice}</h3>
                                 </div>
-                                <button className="agregar" onClick={handleBuy}>comprar</button>
+                                <button className="agregar" onClick={handleBuy}>Finalizar Compra</button>
                                 <button className="consultar" onClick={handleWhatsappMessage}>
-                                    Consultar al WhatsApp
+                                    Consultar al
+                                    <img src={wpp} alt="" />
                                 </button>
+
 
                             </div>
                         }

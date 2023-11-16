@@ -65,7 +65,7 @@ export default function InputSearchMobile() {
             {modalOpen && (
                 <div className="modalSearchMobileContain">
                     <div className="modalSearchMobile">
-                        <span className="close" onClick={closeModal}>&times;</span>
+                        <span className="close" onClick={closeModal}>X</span>
                         <div className="inputSearschMobile" >
                             <FontAwesomeIcon icon={faSearch} className="search-icon" />
                             <input

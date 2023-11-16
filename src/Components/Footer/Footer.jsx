@@ -28,12 +28,7 @@ export default function Footer() {
                     <Anchor to={`/`}>Zapatillas </Anchor>
                     <Anchor to={`/`}>Pantalones </Anchor>
                 </div>
-                <div className='contact-footer'>
 
-                    <Anchor to={`/`} >Remeras </Anchor>
-                    <Anchor to={`/`}>Zapatillas </Anchor>
-                    <Anchor to={`/`}>Pantalones </Anchor>
-                </div>
                 <div className='contact-footer'>
                     <input type="text" placeholder='Correo electronico' />
                     <button type="button">Enviar</button>

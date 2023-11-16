@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import './Detail.css'
 import 'react-responsive-modal/styles.css'; // Importa los estilos de react-responsive-modal
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faShare, faMapMarker } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import LoadingDetail from "../LoadingDetail/LoadingDetail";
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,6 +12,7 @@ import 'swiper/swiper-bundle.min.css'; // Import Swiper styles
 import { Modal } from 'react-responsive-modal';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import wpp from '../../images/wpp.png'
 export default function Detail() {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
@@ -115,33 +116,7 @@ export default function Detail() {
             });
         }
     };
-    const handleBuy = () => {
-        console.log("products en el frontend:", producto);
 
-        const token = localStorage.getItem('token');
-        const headers = {
-            'Authorization': `Bearer ${token}`
-        };
-
-
-
-        // Crea una lista de detalles completos de los productos
-        const productsDetails = {
-            id: producto._id,
-            title: producto.title,
-            price: producto.price,
-            categoria: producto.categoria,
-            link: `https://tiendavirtual-qleq.onrender.com/producto/${producto._id}`
-
-        };
-
-        console.log("Detalles de productos en el frontend:", productsDetails);
-
-        // En lugar de enviar solo productIds, envía los detalles completos de los productos
-        axios
-            .post("https://tiendavirtual-qleq.onrender.com/buy", { products: productsDetails.price }, { headers })
-            .then(res => window.location.href = res.data.response.body.init_point);
-    };
     const handleWhatsappMessage = () => {
         const phoneNumber = '3875683101'; // Reemplaza con el número de teléfono al que deseas enviar el mensaje
 
@@ -202,7 +177,7 @@ Producto:(https://tienda-virtual-jet.vercel.app/producto/${producto._id})
                         <div className="deColumText">
                             <h1>{producto.title}</h1>
                             <Anchor to={`/products`}>
-                                Categoria / {producto.categoria}
+                                <FontAwesomeIcon icon={faStar} /> Categoria / {producto.categoria}
                             </Anchor>
                             <h2>$ {producto.price}</h2>
 
@@ -213,10 +188,18 @@ Producto:(https://tienda-virtual-jet.vercel.app/producto/${producto._id})
                                     Agregar al carrito
                                 </button>
 
-                                <button className="comprar" onClick={handleBuy}>comprar</button>
+
                                 <button className="consultar" onClick={handleWhatsappMessage}>
-                                    Consultar al WhatsApp
+                                    Consultar al
+                                    <img src={wpp} alt="" />
                                 </button>
+
+                            </div>
+                            <div className="detalles">
+                                <div>
+                                    <h3>Descripción</h3>
+                                    <p className="description">{producto.description}</p>
+                                </div>
 
                             </div>
                         </div>
@@ -226,15 +209,7 @@ Producto:(https://tienda-virtual-jet.vercel.app/producto/${producto._id})
                             <img src={images[currentImageIndex]} alt="" className="modal-image" /> {/* Agrega una clase para la imagen del modal */}
                         </Modal>
                     </div>
-                    <div className="detalles">
-                        <div>
-                            <h3>Descripción</h3>
-                            <p className="description">{producto.description}</p>
-                        </div>
-                        <div className="deColumText">
 
-                        </div>
-                    </div>
                 </>
             ) : (
                 <p>No se encontró la publicación.</p>

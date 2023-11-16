@@ -299,7 +299,9 @@ nav{
 }
 
   
-
+.enlaces2 a{
+    display: none;
+  }
 
    
 }
@@ -308,9 +310,7 @@ nav{
 
 @media (max-width: 900px) {
   
-    .enlaces2 a{
-       display: none;
-     }
+    
     
      header {
        

@@ -70,6 +70,7 @@ export default function NavbarMobile() {
             {modalOpen && (
                 <div className="modalNavMobileContain">
                     <div className="modalNavMobile">
+                        <span className="close" onClick={closeModal}>X</span>
                         <Anchor to={`/`}>
                             <FontAwesomeIcon icon={faHome} /> Inicio
                         </Anchor>

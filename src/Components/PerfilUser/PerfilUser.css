@@ -14,6 +14,7 @@
     align-items: center;
     margin-top: -10vh;
     gap: 1rem;
+    margin-bottom: 3rem;
 }
 .infoUserCard h3{
     color: var(--text-color);

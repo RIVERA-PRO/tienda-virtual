@@ -127,10 +127,12 @@ export default function Carrito() {
 
         console.log("Detalles de productos en el frontend:", productsDetails);
 
-        // En lugar de enviar solo productIds, envía los detalles completos de los productos
+
         axios
             .post("https://tiendavirtual-qleq.onrender.com/buy", { products: productsDetails }, { headers })
             .then(res => window.location.href = res.data.response.body.init_point);
+
+
     };
 
 
@@ -157,6 +159,8 @@ Total:$ ${totalPrice}
 
         window.open(whatsappUrl, '_blank');
     };
+
+
 
     return (
         <div>
@@ -215,6 +219,7 @@ Total:$ ${totalPrice}
                                     <h3>$ {totalPrice}</h3>
                                 </div>
                                 <button className="agregar" onClick={handleBuy}>Finalizar Compra</button>
+
                                 <button className="consultar" onClick={handleWhatsappMessage}>
                                     Consultar al
                                     <img src={wpp} alt="" />

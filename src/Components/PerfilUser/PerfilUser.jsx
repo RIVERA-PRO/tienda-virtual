@@ -4,6 +4,8 @@ import axios from 'axios';
 import './PerfilUser.css'
 import img from '../../images/3.png'
 import Logout from '../Logout/Logout'
+import AllCompras from '../AllCompras/AllCompras';
+import LoadingCarrito from '../LoadingCarrito/LoadingCarrito';
 export default function PerfilUser() {
     const { id } = useParams(); // Obtener el user_id de los parámetros de la URL
     const [loading, setLoading] = useState(true);
@@ -33,20 +35,26 @@ export default function PerfilUser() {
 
             </div>
             {userData ? (
-                <div className='infoUserCard'>
-                    <img src={userData?.photo} alt={userData.name} />
-                    <h3>Hola ! {userData?.name}</h3>
-                    <p>{userData?.mail}</p>
-                    <Logout />
-                </div>
-            ) : (
-                <div className='infoUserCard'>
-                    <div className='imgloading'>
+                <>
+                    <div className='infoUserCard'>
+                        <img src={userData?.photo} alt={userData.name} />
+                        <h3>Hola ! {userData?.name}</h3>
+                        <p>{userData?.mail}</p>
+                        <Logout />
 
                     </div>
-                    <div className='textLoading'></div>
-                    <div className='textLoading'></div>
-                </div>
+                    <AllCompras />
+                </>
+            ) : (
+                <>
+                    <div className='infoUserCard'>
+                        <div className='imgloading'>
+
+                        </div>
+                        <div className='textLoading'></div>
+                        <div className='textLoading'></div>
+                    </div>
+                    <LoadingCarrito /></>
             )}
         </div>
     );

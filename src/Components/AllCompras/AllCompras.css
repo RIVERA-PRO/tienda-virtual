@@ -1,0 +1,160 @@
+.comprasGrid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  
+    padding: 0px 5%;
+    gap: 2rem;
+}
+
+.subModalCompra{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 80vh;
+    height: 90%;
+    padding: 10px 20px;
+    margin-top: 5vh;
+    overflow-y: scroll;
+}
+.modalCompra{
+    background-color: rgba(0, 0, 0, 0.371);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+.subModalCompra::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+ 
+    cursor: pointer;
+    background-color: transparent;
+   
+}
+ 
+  
+  .subModalCompra::-webkit-scrollbar-thumb {
+    background-color: var(--color1); 
+    border-radius: 10px;
+    margin-top: 3rem;
+  }
+  .cardCompra{
+    background-color: var(--blanco);
+    border-radius: 10px;
+ 
+  
+    display: flex;
+    align-items: center;
+    height: 10rem;
+    width: 90vh;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 0.3px solid #00000037;
+    background-color: var(--blanco);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.049);
+}
+  .cardCompra img{
+    width: 150px;
+    height: 100%;
+    object-fit: cover;
+    
+  
+}
+
+.cardCompraText{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 20px;
+}
+.cardCompraText button{
+    background-color: var(--color1);
+    color: var(--blanco);
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+   cursor: pointer;
+   width: 10rem;
+}
+
+.cardCompraText a{
+    background-color:  var(--color1);
+    color: var(--blanco);
+    padding: 4px 10px;
+    border-radius: 4px;
+   font-size: 14px;
+   width: 7rem;
+}
+.cardCompraText h3{
+    color: var(--text-color1);
+}
+.cardCompraText p{
+    color: var(--text-color2);
+}
+.cardCompraModal{
+    display: flex;
+    border: 0.3px solid #00000037;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.textDetalles{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.textDetalles h4{
+    color: var(--text-color2);
+    font-weight: 500;
+    font-size: 15px;
+    
+}
+@media (max-width: 1024px){
+    .cardCompra img{
+        width: 100px;
+        height: 100%;
+        object-fit: cover;
+     }
+     .cardCompra{
+        height: auto;
+     }
+     .cardCompraText{
+        width: 100%;
+        height: auto;
+        padding: 10px 10px;
+    
+    }
+    .cardCompraText h3{
+       font-size: 15px;
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       max-width: 20ch;
+      
+    }
+    .cardCompraText h4{
+        font-size: 15px;
+       
+     }
+    .cardCompraText p{
+        font-size: 13px;
+     }
+     .subModalCompra{
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        width: 80vh;
+        height: 90%;
+        padding: 10px 20px 100px;
+        margin-top: 5vh;
+        overflow-y: scroll;
+    }
+}

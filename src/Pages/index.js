@@ -12,6 +12,7 @@ import CrearProducto from "../Components/CrearProducto/CrearProducto";
 import ProductosDashboard from "../Components/ProductosDashboard/ProductosDashboard";
 import AllProductos from "../Components/AllProductos/AllProductos";
 import AllUsersDashboard from "../Components/AllUsersDashboard/AllUsersDashboard";
+import CompraRealizada from "../Components/CompraRealizada/CompraRealizada";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
             {
                 path: "/perfil/:id",
                 element: <PerfilUser />,
+            },
+            {
+                path: "/compra",
+                element: <CompraRealizada />,
             },
         ],
     },

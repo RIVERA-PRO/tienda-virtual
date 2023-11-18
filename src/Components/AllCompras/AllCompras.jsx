@@ -26,7 +26,7 @@ export default function AllCompras() {
         const token = localStorage.getItem('token');
 
         axios
-            .get(`http://localhost:8080/compra`, { headers: { Authorization: `Bearer ${token}` } })
+            .get(`https://tiendavirtual-qleq.onrender.com/compra`, { headers: { Authorization: `Bearer ${token}` } })
             .then((response) => {
                 setCompras(response?.data?.compras);
                 setShowSpiral(false);

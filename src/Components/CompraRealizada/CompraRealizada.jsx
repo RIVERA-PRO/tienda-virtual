@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './CompraRealizada.css'
 import Swal from 'sweetalert2';
 import axios from 'axios';
+
 export default function CompraRealizada() {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
@@ -10,11 +11,12 @@ export default function CompraRealizada() {
     // Extraer los parámetros de la consulta
     const idTransaccion = searchParams.get('collection_id');
     const status = searchParams.get('status');
-
+    const [compras, setCompras] = useState([]);
     const [products, setProducts] = useState([]);
     const [showSpiral, setShowSpiral] = useState(true);
     const [totalPrice, setTotalPrice] = useState(0);
     const [userData, setUserData] = useState(null);
+    const navigate = useNavigate();
 
     const updateUserData = () => {
         const user = localStorage.getItem('user');
@@ -22,9 +24,15 @@ export default function CompraRealizada() {
             setUserData(JSON.parse(user));
         }
     };
+
     useEffect(() => {
         updateUserData();
     }, []);
+
+    useEffect(() => {
+        handleBuy();
+    }, [userData]);
+
     useEffect(() => {
         axios
             .get(`https://tiendavirtual-qleq.onrender.com/carrito`)
@@ -37,32 +45,26 @@ export default function CompraRealizada() {
             });
     }, []);
 
-
     const handleBuy = () => {
-        console.log("products en el frontend:", products);
+        if (!userData) {
+            // Asegurar que userData esté definido antes de continuar
+            return;
+        }
 
         const token = localStorage.getItem('token');
         const headers = {
             'Authorization': `Bearer ${token}`
         };
 
-        // Filtra los productos del usuario actual
         const userProducts = products.filter((item) => item.user_id._id === userData?.user_id);
 
-        // Crea una lista de detalles completos de los productos
         const productsDetails = userProducts.map((item) => ({
-            publicacion_id: item.publicacion_id,
-
-            title: item.title,
-            price: item.price,
-            categoria: item.categoria,
-            cover_photo: item.cover_photo,
-
+            publicacion_id: item && item.publicacion_id,
+            title: item && item.title,
+            price: item && item.price,
+            categoria: item && item.categoria,
+            cover_photo: item && item.cover_photo,
         }));
-        console.log(productsDetails[0].publicacion_id)
-
-
-        console.log("Detalles de productos en el frontend:", productsDetails);
 
         const compra = {
             products: productsDetails,
@@ -72,31 +74,48 @@ export default function CompraRealizada() {
         };
 
         axios
-            .post("https://tiendavirtual-qleq.onrender.com/compra", compra, { headers })
-            .then(res => {
-                const initPoint = res?.data?.response?.body?.init_point;
-                console.log(status);
-                if (initPoint && status === 'approved') {
-                    // Ejecuta handleBuy y luego muestra la alerta
-                    handleBuy();
+            .get(`https://tiendavirtual-qleq.onrender.com/compra/`, { headers })
+            .then((verificacionRes) => {
+                const transaccionesExisten = verificacionRes?.data?.compras?.some(
+                    (compra) => compra.idTransaccion === idTransaccion
+                );
 
-                    Swal.fire({
-                        icon: 'success',
-                        title: '¡Compra Exitosa!',
-                        text: 'Tu compra ha sido aprobada con éxito.',
-                    });
-                } else {
-                    console.error('La propiedad init_point no está definida en la respuesta o el status no es "approved".');
-                    // Manejar el error de alguna manera, por ejemplo, redirigiendo a una página de error.
+                if (transaccionesExisten) {
+                    console.log('La transacción ya existe en la base de datos. No se creará nuevamente.');
+                    return;
                 }
+
+                axios
+                    .post("https://tiendavirtual-qleq.onrender.com/compra", compra, { headers })
+                    .then((res) => {
+                        console.log('Respuesta del servidor:', res?.data);
+
+                        const status = res?.data?.response?.status;
+                        console.log(status);
+                        if (status === 'approved') {
+                            setTotalPrice(0);
+                            setProducts([]);
+                            setShowSpiral(true);
+
+                            Swal.fire({
+                                icon: 'success',
+                                title: '¡Compra Exitosa!',
+                                text: `N° de transaccion ${idTransaccion}`,
+                            });
+                            navigate('/')
+                        } else {
+                            console.error('La transacción no fue aprobada.');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error al realizar la compra:', error);
+                    });
             })
-            .catch(error => {
-                console.error('Error al realizar la compra:', error);
-                // Manejar el error de alguna manera, por ejemplo, mostrar un mensaje al usuario.
+            .catch((verificacionError) => {
+                console.error('Error al verificar la transacción:', verificacionError);
             });
-
-
     };
+
     useEffect(() => {
         calculateTotalPrice();
     }, [products]);
@@ -112,14 +131,10 @@ export default function CompraRealizada() {
 
     return (
         <div>
-            <h1>Compra Realizada</h1>
+            {/* <h1>Compra Realizada</h1>
             <p>Collection ID: {idTransaccion}</p>
-            <p>Status: {status}</p>
-            <div className='carrito'>
-
-
-
-
+            <p>Status: {status}</p> */}
+            {/* <div className='carrito'>
                 {showSpiral && <div>cargando</div>}
                 {!showSpiral && (
                     <div className='carritoGrid'>
@@ -127,8 +142,6 @@ export default function CompraRealizada() {
                             {products
                                 .filter((item) => item.user_id._id === userData?.user_id)
                                 .map((item) => (
-
-
                                     <div key={item._id} className='cardCarrito'>
                                         <img src={item.cover_photo} alt="" />
                                         <div className='cardCarritoText'>
@@ -137,28 +150,15 @@ export default function CompraRealizada() {
                                                 <p>{item.categoria}</p>
                                                 <h4>$ {item.price}</h4>
                                             </div>
-
-
-
                                         </div>
-
                                     </div>
-
-
-
-
-                                ))
-
-                            }
-                            <button button className="agregar" onClick={handleBuy}>Finalizar Compra</button>
+                                ))}
+                            <button className="agregar" onClick={handleBuy}>Finalizar Compra</button>
                             <h3>$ {totalPrice}</h3>
                         </div>
-
-
                     </div>
                 )}
-            </div>
-        </div >
+            </div> */}
+        </div>
     );
 };
-

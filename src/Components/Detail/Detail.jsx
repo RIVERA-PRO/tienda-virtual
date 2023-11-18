@@ -93,7 +93,7 @@ export default function Detail() {
 
                 Swal.fire({
                     icon: 'success',
-                    title: 'Producto agregado al carrito',
+                    title: 'Producto agregado ',
                     showConfirmButton: false,
                     timer: 1500,
                 });
@@ -101,7 +101,7 @@ export default function Detail() {
                 console.error('Error al agregar el producto al carrito:', response.status);
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error al agregar el producto al carrito',
+                    title: 'Debes iniciar sesion',
                     showConfirmButton: false,
                     timer: 1500,
                 });

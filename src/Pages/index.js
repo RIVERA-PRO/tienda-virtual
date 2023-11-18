@@ -13,6 +13,7 @@ import ProductosDashboard from "../Components/ProductosDashboard/ProductosDashbo
 import AllProductos from "../Components/AllProductos/AllProductos";
 import AllUsersDashboard from "../Components/AllUsersDashboard/AllUsersDashboard";
 import CompraRealizada from "../Components/CompraRealizada/CompraRealizada";
+import AllComprasDashboard from "../Components/AllComprasDashboard/AllComprasDashboard";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -79,7 +80,10 @@ export const router = createBrowserRouter([
                 path: "/usuarios",
                 element: <AllUsersDashboard />,
             },
-
+            {
+                path: "/compras",
+                element: <AllComprasDashboard />,
+            },
         ],
     },
 ]);

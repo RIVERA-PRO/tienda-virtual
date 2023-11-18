@@ -5,7 +5,7 @@ import { faArrowRight, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function UsersCantidad() {
     const [loading, setLoading] = useState(true);
-    const [producto, setProducto] = useState([]);
+    const [compra, setCompra] = useState([]);
 
     useEffect(() => {
         fetchUsers();
@@ -13,11 +13,11 @@ export default function UsersCantidad() {
 
     const fetchUsers = () => {
 
-        fetch('https://tiendavirtual-qleq.onrender.com/compras')
+        fetch('https://tiendavirtual-qleq.onrender.com/compra')
             .then(response => response.json())
             .then(data => {
 
-                setProducto(data?.compras);
+                setCompra(data?.compras);
 
                 setLoading(false);
             })
@@ -53,7 +53,7 @@ export default function UsersCantidad() {
                     <Anchor className='linea'>
                         ---
                     </Anchor>
-                    <Anchor to='/productos' className='more'>
+                    <Anchor to='/compras' className='more'>
                         Ver más    <FontAwesomeIcon icon={faArrowRight} />
                     </Anchor>
 
@@ -65,14 +65,14 @@ export default function UsersCantidad() {
                         <FontAwesomeIcon icon={faShoppingCart} className='iconDash' />
                         <div>
                             <h4>Compras</h4>
-                            <h3 className='title-cantidad'> 0</h3>
+                            <h3 className='title-cantidad'> {compra.length}</h3>
 
                         </div>
                     </div>
                     <Anchor className='linea'>
                         ---
                     </Anchor>
-                    <Anchor to='/productos' className='more'>
+                    <Anchor to='/compras' className='more'>
                         Ver más    <FontAwesomeIcon icon={faArrowRight} />
                     </Anchor>
 

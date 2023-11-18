@@ -98,12 +98,12 @@ export default function LoginDashboard() {
         <div className='form-register-contain'>
             <form action='' className='form-register' onSubmit={handleSubmit} ref={dataForm}>
 
-                <img src="https://i.postimg.cc/VNyHKfFn/gratis-png-perfil-de-usuario-iconos-de-la-computadora-interfaz-de-usuario-mistica.png" alt="" />
+                <img className='imgDashLogin' src="https://i.postimg.cc/VNyHKfFn/gratis-png-perfil-de-usuario-iconos-de-la-computadora-interfaz-de-usuario-mistica.png" alt="" />
                 <h4>Ingresar</h4>
                 <label htmlFor=''>Email</label>
-                <input type='email' placeholder='Email' name='mail' id='mail' />
+                <input type='email' placeholder='Email' name='mail' id='mail' required />
                 <label htmlFor=''>Contraseña</label>
-                <input type='password' placeholder='Contraseña' name='password' id='password' />
+                <input type='password' placeholder='Contraseña' name='password' id='password' required />
                 <div className='enviar'>
                     <input type='submit'></input>
                 </div>

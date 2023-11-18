@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
-
+import ButonGoogle from '../ButonGoogle/ButonGoogle';
 
 
 
@@ -84,19 +84,13 @@ export default function Register() {
         <label htmlFor="">Email</label>
         <input type="email" placeholder='Email' name='mail' id='mail' required />
         <label htmlFor="">Foto</label>
-        <input type="text" placeholder='Foto url (opcional)' name='photo' id='photo' />
+        <input type="url" placeholder='Foto url (opcional)' name='photo' id='photo' />
         <label htmlFor="">Contraseña</label>
         <input type="password" placeholder='Contraseña' name='password' id='password' required />
         <div className='enviar'>
           <input type='submit'></input>
         </div>
-        <button
-          className="google"
-        >
-
-          Registrar con google
-
-        </button>
+        <ButonGoogle />
 
       </form>
     </div>

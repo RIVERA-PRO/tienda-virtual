@@ -21,7 +21,7 @@
   
 }
 
-.img-form img{
+.fondoLogin{
     width: 100%;
     height: 100%;
     border-radius: 1em;
@@ -52,7 +52,7 @@
      
     }
 
-    .img-form img{
+    .fondoLogin{
       display: none;
     }
     .PageLogin{

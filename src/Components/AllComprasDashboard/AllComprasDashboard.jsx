@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import './AllUsersDashboard.css';
+
 import { Link as Anchor } from "react-router-dom";
 import axios from 'axios';
 import NavbarDashboard from '../NavbarDashboard/NavbarDashboard';
 import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faArrowRight, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import PerfilDashboard from '../PerfilDashboard/PerfilDashboard'
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { faFileExcel, faFilePdf } from '@fortawesome/free-solid-svg-icons';
-export default function AllUsersDashboard() {
-    const [usuarios, setUsuarios] = useState([]);
+export default function AllComprasDashboard() {
+    const [prductos, setUProductos] = useState([]);
     const [showSpiral, setShowSpiral] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
     const [editedRol, setEditedRol] = useState(null);
@@ -21,14 +21,14 @@ export default function AllUsersDashboard() {
     const [excelData, setExcelData] = useState([]);
     useEffect(() => {
         axios
-            .get('https://tiendavirtual-qleq.onrender.com/users')
+            .get('https://tiendavirtual-qleq.onrender.com/compra')
             .then((response) => {
 
-                setUsuarios(response.data.users);
+                setUProductos(response.data.compras);
                 setShowSpiral(false);
-                console.log(response.data.users);
+                console.log(response.data.compras);
 
-                setExcelData(response.data.users);
+                setExcelData(response.data.compras);
 
             })
             .catch((error) => {
@@ -36,8 +36,8 @@ export default function AllUsersDashboard() {
             });
     }, []);
 
-    const filteredUsuarios = usuarios.filter((item) =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredUsuarios = prductos.filter((item) =>
+        item.user_id.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     const handleDeleteUsuario = async (id) => {
@@ -68,7 +68,7 @@ export default function AllUsersDashboard() {
                 const response = await axios.get('https://tiendavirtual-qleq.onrender.com/users');
 
 
-                setUsuarios(response.data.users);
+                setUProductos(response.data.users);
 
                 Swal.fire({
                     position: 'top-end',
@@ -112,14 +112,14 @@ export default function AllUsersDashboard() {
                     headers,
                 });
 
-                const updatedUsuarios = usuarios.map((usuario) => {
+                const updatedUsuarios = prductos.map((usuario) => {
                     if (usuario._id === selectedUserId) {
                         return { ...usuario, is_admin: editedRol };
                     }
                     return usuario;
                 });
 
-                setUsuarios(updatedUsuarios);
+                setUProductos(updatedUsuarios);
                 setEditedRol(null);
                 setSelectedUserId(null);
 
@@ -160,7 +160,7 @@ export default function AllUsersDashboard() {
         const doc = new jsPDF();
         doc.text('Lista de usuarios', 14, 10);
 
-        const data = usuarios.map((item) => [item._id, item.name, item.mail, item.is_admin]);
+        const data = prductos.map((item) => [item._id, item.name, item.mail, item.is_admin]);
 
         doc.autoTable({
             head: [['Id', 'Nombre', 'Email', 'Admin']],
@@ -175,8 +175,8 @@ export default function AllUsersDashboard() {
 
             <section className='sectionDashboard'>
                 <div className='title_Dash'>
-                    <FontAwesomeIcon icon={faUser} className='iconDashTitle' />
-                    <h2 >Usuarios {usuarios?.length}</h2>
+                    <FontAwesomeIcon icon={faShoppingCart} className='iconDashTitle' />
+                    <h2 >Compras {prductos?.length}</h2>
                 </div>
 
                 {showSpiral &&
@@ -240,7 +240,7 @@ export default function AllUsersDashboard() {
                 {!showSpiral && (
                     <div>
                         <div className='deflex'>
-                            <Anchor to={`/usuarios`} id='crear'>Agregar</Anchor>
+                            <Anchor to={``} id='crear'>Agregar</Anchor>
                             <div className='deFlexExport'>
                                 <button className="excel-button">
                                     <FontAwesomeIcon icon={faFileExcel} />
@@ -265,9 +265,12 @@ export default function AllUsersDashboard() {
                                     <thead>
                                         <tr>
                                             <th>Id</th>
+                                            <th>N° Transcaccion</th>
                                             <th>Nombre</th>
                                             <th>Email</th>
-                                            <th>rol</th>
+                                            <th>Imagen</th>
+                                            <th>Producto</th>
+                                            <th>Categoria</th>
                                             <th>Imagen</th>
                                             <th>Acciones</th>
                                         </tr>
@@ -276,23 +279,25 @@ export default function AllUsersDashboard() {
                                         {filteredUsuarios.map((item) => (
                                             <tr key={item._id}>
                                                 <td>{item?._id}</td>
-                                                <td>{item?.name}</td>
-                                                <td>{maskEmail(item.mail)}</td>
-                                                <td style={{ color: item?.is_admin ? 'green' : 'red' }}>
-                                                    {item?.is_admin ? 'admin' : 'usuario'}</td>
-                                                <td><img src={item?.photo} alt="" /></td>
+                                                <td>{item?.idTransaccion}</td>
+                                                <td>{item?.user_id?.name}</td>
+                                                <td>{maskEmail(item.user_id?.mail)}</td>
+                                                <td><img src={item?.user_id?.photo} alt="" /></td>
+                                                <td>{item?.products[0]?.title}</td>
+                                                <td>  {item?.products[0]?.categoria}</td>
+                                                <td><img src={item?.products[0]?.cover_photo} alt="" /></td>
                                                 <td>
                                                     <span
                                                         className="material-icons"
                                                         style={{ cursor: "pointer", color: "red" }}
-                                                        onClick={() => handleDeleteUsuario(item._id)}
+
                                                     >
                                                         delete
                                                     </span>
                                                     <span
                                                         className="material-icons"
                                                         style={{ cursor: "pointer", color: "#0074E4", marginLeft: "10px" }}
-                                                        onClick={() => handleEditUsuario(item._id, item.is_admin)}
+
                                                     >
                                                         edit
                                                     </span>

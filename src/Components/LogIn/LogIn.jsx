@@ -4,8 +4,8 @@ import Swal from 'sweetalert2'
 import { useRef, useState, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router';
-
-
+import img from '../../images/google.png'
+import ButonGoogle from '../ButonGoogle/ButonGoogle';
 export default function SignIn() {
   const [reload, setReload] = useState(false); // Estado para actualizar el componente
 
@@ -89,18 +89,14 @@ export default function SignIn() {
       <form action='' className='form-register' onSubmit={handleSubmit} ref={dataForm}>
         <h4>Ingresar</h4>
         <label htmlFor=''>Email</label>
-        <input type='email' placeholder='Email' name='mail' id='mail' />
+        <input type='email' placeholder='Email' name='mail' id='mail' required />
         <label htmlFor=''>Contraseña</label>
-        <input type='password' placeholder='Contraseña' name='password' id='password' />
+        <input type='password' placeholder='Contraseña' name='password' id='password' required />
         <div className='enviar'>
           <input type='submit'></input>
         </div>
-        <button
-          className="google"
-        >
 
-          Iniciar sesion con google
-        </button>
+        <ButonGoogle />
       </form>
     </div>
   );

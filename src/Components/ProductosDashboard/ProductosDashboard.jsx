@@ -286,11 +286,11 @@ export default function ProductosDashboard() {
                         <div className='deflex'>
                             <Anchor to={`/productos/crear`} id='crear'>Agregar</Anchor>
                             <div className='deFlexExport'>
-                                <button onClick={exportToExcel} className="excel-button">
+                                <button className="excel-button">
                                     <FontAwesomeIcon icon={faFileExcel} />
                                 </button>
 
-                                <button onClick={exportToPDF} className="pdf-button">
+                                <button className="pdf-button">
                                     <FontAwesomeIcon icon={faFilePdf} />
                                 </button>
                             </div>

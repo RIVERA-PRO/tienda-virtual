@@ -20,7 +20,7 @@ export default function LogoutButton() {
     Swal.fire({
       position: 'top-end',
       icon: 'success',
-      title: 'Sesion iniciada',
+      title: 'Sesion cerrada',
       showConfirmButton: false,
       timer: 1500
     })

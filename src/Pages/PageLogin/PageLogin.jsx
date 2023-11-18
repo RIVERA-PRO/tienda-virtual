@@ -16,7 +16,7 @@ export default function PageLogin() {
                 <div>
                     <div className='img-form'>
                         <div>
-                            <img src={imagen} alt="" className='fondo' />
+                            <img src={imagen} alt="" className='fondoLogin' />
                         </div>
                         <Login />
                     </div>
@@ -26,7 +26,7 @@ export default function PageLogin() {
                 <div>
                     <div className='img-form'>
                         <div>
-                            <img src={imagen} alt="" className='fondo' />
+                            <img src={imagen} alt="" className='fondoLogin' />
                         </div>
                         <Register />
                     </div>
